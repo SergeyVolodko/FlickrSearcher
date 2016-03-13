@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlickrSearcher", "FlickrSearcher\FlickrSearcher.csproj", "{354E7693-D2B5-4F50-903A-03750CFADFD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlickrSearcher.Tests", "FlickrSearcher.Tests\FlickrSearcher.Tests.csproj", "{B94A4246-7274-4B74-A92D-520C473EF22F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{354E7693-D2B5-4F50-903A-03750CFADFD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{354E7693-D2B5-4F50-903A-03750CFADFD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{354E7693-D2B5-4F50-903A-03750CFADFD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{354E7693-D2B5-4F50-903A-03750CFADFD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B94A4246-7274-4B74-A92D-520C473EF22F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B94A4246-7274-4B74-A92D-520C473EF22F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B94A4246-7274-4B74-A92D-520C473EF22F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B94A4246-7274-4B74-A92D-520C473EF22F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
