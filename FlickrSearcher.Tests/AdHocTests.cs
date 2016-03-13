@@ -21,7 +21,13 @@ namespace FlickrSearcher.Tests
             var client = new HttpClient();
 
             var url =
-                "https://api.flickr.com/services/rest/?&method=flickr.photos.search&api_key=0750e5b8e98b415cbc0bd5361da74f6a&format=json&nojsoncallback=1&text=red";
+                "https://api.flickr.com/services/rest/?" +
+                "&method=flickr.photos.search" +
+                "&api_key=0750e5b8e98b415cbc0bd5361da74f6a" +
+                "&per_page=10" +
+                "&page=2" +
+                "&format=json&nojsoncallback=1" +
+                "&text=red";
 
             var response = await client.GetAsync(url);
 
