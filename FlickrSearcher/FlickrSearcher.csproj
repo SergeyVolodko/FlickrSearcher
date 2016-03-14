@@ -119,7 +119,12 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search\ImageRepository.cs" />
+    <Compile Include="Search\Photo.cs" />
+    <Compile Include="Search\PhotoInfo.cs" />
+    <Compile Include="Search\PhotoRepository.cs" />
     <Compile Include="Search\SearchController.cs" />
+    <Compile Include="Search\SearchService.cs" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

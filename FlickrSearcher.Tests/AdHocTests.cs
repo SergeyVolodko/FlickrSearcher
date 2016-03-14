@@ -13,11 +13,6 @@ namespace FlickrSearcher.Tests
         [Fact]
         public async Task check_flckr()
         {
-            //ServicePointManager.SecurityProtocol =
-            //    SecurityProtocolType.Tls12
-            //    | SecurityProtocolType.Tls11
-            //    | SecurityProtocolType.Tls;
-
             var client = new HttpClient();
 
             var url =
@@ -43,12 +38,7 @@ namespace FlickrSearcher.Tests
         public async Task request_photo()
         {
             //{"id":"25750968675","owner":"125349441@N03","secret":"5c4b5e441a","server":"1460","farm":2,"title":"Red Tail","ispublic":1,"isfriend":0,"isfamily":0}
-
-            ServicePointManager.SecurityProtocol =
-                SecurityProtocolType.Tls12
-                | SecurityProtocolType.Tls11
-                | SecurityProtocolType.Tls;
-
+            
             var client = new HttpClient();
 
             //farm - id: 1
@@ -57,8 +47,9 @@ namespace FlickrSearcher.Tests
             //secret: 1e92283336
             //size: m
 
-            var url = "" +
-                      "https://farm2.staticflickr.com/1460/25750968675_5c4b5e441a_m.jpg";
+            var url = "https://farm2.staticflickr.com" +
+                      "/1460" +
+                      "/25750968675_5c4b5e441a_m.jpg";
             
             var response = await client.GetAsync(url);
 
@@ -75,7 +66,12 @@ namespace FlickrSearcher.Tests
             var client = new HttpClient();
 
             var url =
-                "https://api.flickr.com/services/rest/?&method=flickr.photos.getInfo&api_key=0750e5b8e98b415cbc0bd5361da74f6a&format=json&nojsoncallback=1&photo_id=25750968675";
+                "https://api.flickr.com/services/rest/?" +
+                "&method=flickr.photos.getInfo" +
+                "&api_key=0750e5b8e98b415cbc0bd5361da74f6a" +
+                "&format=json" +
+                "&nojsoncallback=1" +
+                "&photo_id=25750968675";
 
             var response = await client.GetAsync(url);
 
