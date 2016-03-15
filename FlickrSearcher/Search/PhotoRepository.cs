@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -35,9 +36,28 @@ namespace FlickrSearcher.Search
             return JsonConvert.DeserializeObject<List<FlickerPhoto>>(photos.ToString());
         }
 
-        public FlickerPhotoDetails LoadPhotoDetails(long photoId)
+        public FlickerPhotoDetails LoadPhotoDetails(
+            long photoId)
         {
-            throw new System.NotImplementedException();
+            var url =
+                "https://api.flickr.com/services/rest/?" +
+                "&method=flickr.photos.getInfo" +
+                "&api_key=0750e5b8e98b415cbc0bd5361da74f6a" +
+                "&format=json" +
+                "&nojsoncallback=1" +
+                "&photo_id=" + photoId;
+
+            var json = MakeGetRequest(url);
+
+            var photo = JObject.Parse(json)["photo"];
+
+            return new FlickerPhotoDetails
+            {
+                PhotoId = (string)photo["id"],
+                OwnerName = (string)photo["owner"]["username"],
+                Title = (string)photo["title"]["_content"],
+                TakenDate = (DateTime?)photo["dates"]["taken"]
+            };
         }
 
         private string MakeGetRequest(string url)

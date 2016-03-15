@@ -125,6 +125,7 @@
     <Compile Include="PhotoControllerTests\GetPhotoDetails.cs" />
     <Compile Include="PhotoControllerTests\Search.cs" />
     <Compile Include="PhotoRepositoryTests\Find.cs" />
+    <Compile Include="PhotoRepositoryTests\LoadPhotoDetails.cs" />
     <Compile Include="PhotoServiceTests\GetPhotoDetails.cs" />
     <Compile Include="PhotoServiceTests\Search.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,6 +140,9 @@
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="test_data\approvals\photo_approval.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="test_data\approvals\photo_repo_load_details_result_approval.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="test_data\approvals\photo_repo_find_result_approval.json">

@@ -13,9 +13,7 @@ namespace FlickrSearcher.Tests.PhotoServiceTests
         public void calls_photo_repository_load_details()
         {
             // arrange
-            var sutData = new PhotoServiceSUTBuilder()
-                
-                .Build();
+            var sutData = new PhotoServiceSUTBuilder().Build();
             var sut = sutData.Service;
             var photoRepo = sutData.PhotoRepository;
             var id = sutData.InputPhotoId;
