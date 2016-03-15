@@ -61,7 +61,7 @@ namespace FlickrSearcher.Tests.Data
             List<FoundPhoto> foundPhotos)
         {
             data.PhotoRepository
-                .Search(data.InputText, data.InputPage)
+                .Find(data.InputText, data.InputPage)
                 .Returns(foundPhotos);
 
             return this;

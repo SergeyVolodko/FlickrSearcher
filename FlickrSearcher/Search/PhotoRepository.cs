@@ -1,18 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace FlickrSearcher.Search
 {
     public interface IPhotoRepository
     {
-        IList<FoundPhoto> Search(string text, int page);
+        IList<FoundPhoto> Find(string text, int page);
     }
 
     public class PhotoRepository: IPhotoRepository
     {
-        public IList<FoundPhoto> Search(string text, int page)
+        public IList<FoundPhoto> Find(
+            string text, 
+            int page)
         {
-            throw new NotImplementedException();
+            var url = string.Format(
+                "https://api.flickr.com/services/rest/?" +
+                "&method=flickr.photos.search" +
+                "&api_key=0750e5b8e98b415cbc0bd5361da74f6a" +
+                "&format=json&nojsoncallback=1" +
+                "&text={0}" +
+                "&per_page=10" +
+                "&page={1}",
+                text, page);
+
+            var json = MakeGetRequest(url);
+
+            var photos = (JObject.Parse(json)["photos"]["photo"] as JArray);
+            
+            return JsonConvert.DeserializeObject<List<FoundPhoto>>(photos.ToString());
+        }
+
+        private string MakeGetRequest(string url)
+        {
+            var httpClient = new HttpClient();
+
+            var responseJson = "";
+
+            Task makeRequest = httpClient.GetAsync(url)
+                .ContinueWith(task =>
+                {
+                    if (task.Result.IsSuccessStatusCode)
+                    {
+                        task.Result.Content.ReadAsStringAsync()
+                            .ContinueWith(t => { responseJson = t.Result; })
+                            .Wait();
+                    }
+                });
+            makeRequest.Wait();
+
+            return responseJson;
         }
     }
 }

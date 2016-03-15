@@ -14,10 +14,11 @@ namespace FlickrSearcher.Tests
             var input = 25750968675;
             var expected = "FewrQx";
 
-            // act //assert
-            sut.Encode(input)
-                .Should()
-                .Be(expected);
+            // act 
+            var actual = sut.Encode(input);
+
+            // assert
+            actual.Should().Be(expected);
         }
     }
 }

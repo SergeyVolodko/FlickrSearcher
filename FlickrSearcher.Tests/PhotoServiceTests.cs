@@ -27,7 +27,7 @@ namespace FlickrSearcher.Tests
             // assert
             photoRepo
                 .Received()
-                .Search(text, page);
+                .Find(text, page);
         }
 
         [Theory]

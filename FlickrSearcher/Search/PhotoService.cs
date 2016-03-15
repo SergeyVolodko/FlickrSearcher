@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace FlickrSearcher.Search
@@ -27,18 +26,17 @@ namespace FlickrSearcher.Search
 
         public IList<Photo> Search(string text, int page)
         {
-            var foundPhotos = photoRepository.Search(text, page);
+            var foundPhotos = photoRepository.Find(text, page);
 
-            var tasks = new List<Task<byte[]>>();
             var result = new List<Photo>();
+            var tasks = new List<Task<byte[]>>();
 
             foreach (var foundPhoto in foundPhotos)
             {
-                var id = encoder.Encode(foundPhoto.Id);
-                var photo = new Photo { Id = id };
-                var task = imageRepository
-                        .GetSmallImage(foundPhoto);
+                var encodedId = encoder.Encode(foundPhoto.Id);
+                var photo = new Photo { Id = encodedId };
 
+                var task = imageRepository.GetSmallImage(foundPhoto);
                 task.ContinueWith(t =>
                 {
                     photo.Image = t.Result;
