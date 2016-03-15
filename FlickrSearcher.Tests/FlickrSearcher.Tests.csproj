@@ -122,10 +122,12 @@
     <Compile Include="Infrastructure\AutoNSubstituteDataAttribute.cs" />
     <Compile Include="Infrastructure\ControllerAutoDataAttribute.cs" />
     <Compile Include="Infrastructure\WebApi.cs" />
+    <Compile Include="PhotoControllerTests\GetPhotoDetails.cs" />
+    <Compile Include="PhotoControllerTests\Search.cs" />
     <Compile Include="PhotoRepositoryTests\Find.cs" />
-    <Compile Include="PhotoServiceTests.cs" />
+    <Compile Include="PhotoServiceTests\GetPhotoDetails.cs" />
+    <Compile Include="PhotoServiceTests\Search.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PhotoControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FlickrSearcher\FlickrSearcher.csproj">

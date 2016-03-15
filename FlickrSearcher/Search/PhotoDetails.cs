@@ -1,17 +1,15 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
 namespace FlickrSearcher.Search
 {
     [DataContract]
-    public class Photo
+    public class PhotoDetails
     {
-        [DataMember(Name = "id")]
         public long Id { get; set; }
-
-        [DataMember(Name = "image")]
         public byte[] Image { get; set; }
-
-        [DataMember(Name = "title")]
+        public string OwnerName { get; set; }
         public string Title { get; set; }
+        public DateTime? TakenDate { get; set; }
     }
 }

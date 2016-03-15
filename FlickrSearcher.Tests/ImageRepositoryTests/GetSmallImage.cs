@@ -11,7 +11,7 @@ namespace FlickrSearcher.Tests.ImageRepositoryTests
         public async Task integration()
         {
             // arrange
-            var foundPhoto = new FoundPhoto
+            var foundPhoto = new FlickerPhoto
             {
                 Id = 25565832916,
                 Secret = "8a39692507",

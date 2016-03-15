@@ -1,4 +1,5 @@
 ﻿{
-  "id": "42",
-  "image": "AQID"
+  "id": 42,
+  "image": "AQID",
+  "title": "The test"
 }

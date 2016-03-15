@@ -3,7 +3,7 @@
 namespace FlickrSearcher.Search
 {
     [DataContract]
-    public class FoundPhoto
+    public class FlickerPhoto
     {
         [DataMember(Name = "id")]
         public long Id { get; set; }
@@ -16,5 +16,8 @@ namespace FlickrSearcher.Search
 
         [DataMember(Name = "farm")]
         public int Farm { get; set; }
+
+        [DataMember(Name = "title")]
+        public string Title { get; set; }
     }
 }

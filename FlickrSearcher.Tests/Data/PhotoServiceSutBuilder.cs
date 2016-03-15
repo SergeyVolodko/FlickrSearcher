@@ -12,6 +12,8 @@ namespace FlickrSearcher.Tests.Data
 
         public int InputPage;
 
+        public long InputPhotoId;
+
         public PhotoService Service;
 
         public IFlickerEncoder FlickerEncoder;
@@ -23,6 +25,11 @@ namespace FlickrSearcher.Tests.Data
         public IList<Photo> CallSearch()
         {
             return Service.Search(InputText, InputPage);
+        }
+
+        public PhotoDetails CallGetPhotoDetails()
+        {
+            return Service.GetPhotoDetails(InputPhotoId);
         }
     }
 
@@ -44,6 +51,7 @@ namespace FlickrSearcher.Tests.Data
             {
                 InputText = fixture.Create<string>(),
                 InputPage = fixture.Create<int>(),
+                InputPhotoId = fixture.Create<long>(),
                 PhotoRepository = photoRepo,
                 ImageRepository = imageRepo,
                 FlickerEncoder = encoder,
@@ -58,21 +66,21 @@ namespace FlickrSearcher.Tests.Data
         }
 
         public PhotoServiceSUTBuilder FindsPhotos(
-            List<FoundPhoto> foundPhotos)
+            List<FlickerPhoto> flickerPhotos)
         {
             data.PhotoRepository
                 .Find(data.InputText, data.InputPage)
-                .Returns(foundPhotos);
+                .Returns(flickerPhotos);
 
             return this;
         }
 
         public PhotoServiceSUTBuilder GetsSmallImage(
-            FoundPhoto inputFoundPhoto, 
+            FlickerPhoto inputFlickerPhoto, 
             byte[] outputImage)
         {
             data.ImageRepository
-                .GetSmallImage(inputFoundPhoto)
+                .GetSmallImage(inputFlickerPhoto)
                 .Returns(Task.FromResult(outputImage));
 
             return this;
@@ -85,6 +93,35 @@ namespace FlickrSearcher.Tests.Data
             data.FlickerEncoder
                 .Encode(inputId)
                 .Returns(outputEncodedId);
+
+            return this;
+        }
+
+        public PhotoServiceSUTBuilder WithInputPhotoId(
+            long photoId)
+        {
+            data.InputPhotoId = photoId;
+            return this;
+        }
+
+        public PhotoServiceSUTBuilder GetsLargeImage(
+            string inputImageId, 
+            byte[] outputImage)
+        {
+            data.ImageRepository
+                .GetLargeImage(inputImageId)
+                .Returns(outputImage);
+
+            return this;
+        }
+
+        public PhotoServiceSUTBuilder LoadsPhoto(
+            long inputPhotoId, 
+            FlickerPhotoDetails outputFlickerDetails)
+        {
+            data.PhotoRepository
+                .LoadPhotoDetails(inputPhotoId)
+                .Returns(outputFlickerDetails);
 
             return this;
         }

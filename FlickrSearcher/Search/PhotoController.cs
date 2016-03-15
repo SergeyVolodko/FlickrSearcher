@@ -19,5 +19,12 @@ namespace FlickrSearcher.Search
         {
             return photoService.Search(text, page);
         }
+
+        [HttpGet]
+        [Route("photoDetails/{id}")]
+        public PhotoDetails GetPhotoDetails(long id)
+        {
+            return photoService.GetPhotoDetails(id);
+        }
     }
 }

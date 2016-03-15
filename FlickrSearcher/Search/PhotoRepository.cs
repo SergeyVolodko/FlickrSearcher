@@ -8,12 +8,13 @@ namespace FlickrSearcher.Search
 {
     public interface IPhotoRepository
     {
-        IList<FoundPhoto> Find(string text, int page);
+        IList<FlickerPhoto> Find(string text, int page);
+        FlickerPhotoDetails LoadPhotoDetails(long photoId);
     }
 
     public class PhotoRepository: IPhotoRepository
     {
-        public IList<FoundPhoto> Find(
+        public IList<FlickerPhoto> Find(
             string text, 
             int page)
         {
@@ -31,7 +32,12 @@ namespace FlickrSearcher.Search
 
             var photos = (JObject.Parse(json)["photos"]["photo"] as JArray);
             
-            return JsonConvert.DeserializeObject<List<FoundPhoto>>(photos.ToString());
+            return JsonConvert.DeserializeObject<List<FlickerPhoto>>(photos.ToString());
+        }
+
+        public FlickerPhotoDetails LoadPhotoDetails(long photoId)
+        {
+            throw new System.NotImplementedException();
         }
 
         private string MakeGetRequest(string url)

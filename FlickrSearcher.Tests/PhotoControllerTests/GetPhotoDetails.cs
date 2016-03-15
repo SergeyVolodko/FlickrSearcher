@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Web.Http;
 using FlickrSearcher.Search;
 using FlickrSearcher.Tests.Infrastructure;
@@ -8,15 +7,15 @@ using NSubstitute;
 using Ploeh.AutoFixture.Xunit2;
 using Xunit;
 
-namespace FlickrSearcher.Tests
+namespace FlickrSearcher.Tests.PhotoControllerTests
 {
-    public class PhotoControllerTests
+    public class GetPhotoDetails
     {
         [Fact]
         public void routing()
         {
             // arrange
-            var uri = @"http://localhost:62276/api/search?text=test&page=1";
+            var uri = @"http://localhost:62276/api/photoDetails/42";
             var request = new HttpRequestMessage(HttpMethod.Get, uri);
             var config = new HttpConfiguration();
 
@@ -26,45 +25,44 @@ namespace FlickrSearcher.Tests
 
             // asserts
             route.Controller.Should().Be<PhotoController>();
-            route.Action.Should().Be("Search");
+            route.Action.Should().Be("GetPhotoDetails");
         }
 
         [Theory]
         [ControllerAutoData]
-        public void calls_photo_service_search(
-            [Frozen]IPhotoService service,
-            PhotoController sut,
-            string text,
-            int page)
+        public void calls_photo_service_get_details(
+           [Frozen]IPhotoService service,
+           PhotoController sut,
+           long photoId)
         {
             // act
-            sut.Search(text, page);
+            sut.GetPhotoDetails(photoId);
 
             // assert
             service
                 .Received()
-                .Search(text, page);
+                .GetPhotoDetails(photoId);
         }
 
         [Theory]
         [ControllerAutoData]
-        public void returns_photos_found_by_service(
+        public void returns_photo_details_returned_by_service(
             [Frozen]IPhotoService service,
             PhotoController sut,
-            string text,
-            int page,
-            List<Photo> photos)
+            long photoId,
+            PhotoDetails photoDetails)
         {
             // arrange
-            service.Search(text, page)
-                .Returns(photos);
+            service
+                .GetPhotoDetails(photoId)
+                .Returns(photoDetails);
 
             // act
-            var actual = sut.Search(text, page);
+            var actual = sut.GetPhotoDetails(photoId);
 
             // assert
             actual
-                .ShouldBeEquivalentTo(photos);
+                .ShouldBeEquivalentTo(photoDetails);
         }
     }
 }

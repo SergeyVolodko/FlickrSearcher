@@ -1,10 +1,6 @@
-﻿using System;
-using System.Net;
-using System.Net.Http;
-using System.Text;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Xunit;
 
 namespace FlickrSearcher.Tests
