@@ -10,7 +10,7 @@ using Xunit;
 
 namespace FlickrSearcher.Tests
 {
-    public class SearchControllerTests
+    public class PhotoControllerTests
     {
         [Fact]
         public void routing()
@@ -25,15 +25,15 @@ namespace FlickrSearcher.Tests
             var route = WebApi.RouteRequest(config, request);
 
             // asserts
-            route.Controller.Should().Be<SearchController>();
+            route.Controller.Should().Be<PhotoController>();
             route.Action.Should().Be("Search");
         }
 
         [Theory]
         [ControllerAutoData]
-        public void calls_search_service_search(
-            [Frozen]ISearchService service,
-            SearchController sut,
+        public void calls_photo_service_search(
+            [Frozen]IPhotoService service,
+            PhotoController sut,
             string text,
             int page)
         {
@@ -48,9 +48,9 @@ namespace FlickrSearcher.Tests
 
         [Theory]
         [ControllerAutoData]
-        public void return_photos_found_by_service(
-            [Frozen]ISearchService service,
-            SearchController sut,
+        public void returns_photos_found_by_service(
+            [Frozen]IPhotoService service,
+            PhotoController sut,
             string text,
             int page,
             List<Photo> photos)

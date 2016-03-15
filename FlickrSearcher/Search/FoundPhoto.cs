@@ -1,8 +1,8 @@
 ﻿namespace FlickrSearcher.Search
 {
-    public class PhotoInfo
+    public class FoundPhoto
     {
-        public string Id { get; set; }
+        public long Id { get; set; }
         public string Secret { get; set; }
         public string Server { get; set; }
         public string Farm { get; set; }

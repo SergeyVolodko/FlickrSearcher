@@ -5,12 +5,12 @@ namespace FlickrSearcher.Search
 {
     public interface IPhotoRepository
     {
-        IList<PhotoInfo> Search(string text, int page);
+        IList<FoundPhoto> Search(string text, int page);
     }
 
     public class PhotoRepository: IPhotoRepository
     {
-        public IList<PhotoInfo> Search(string text, int page)
+        public IList<FoundPhoto> Search(string text, int page)
         {
             throw new NotImplementedException();
         }

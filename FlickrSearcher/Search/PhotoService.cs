@@ -4,38 +4,40 @@ using System.Threading.Tasks;
 
 namespace FlickrSearcher.Search
 {
-    public interface ISearchService
+    public interface IPhotoService
     {
         IList<Photo> Search(string text, int page);
     }
 
-    public class SearchService: ISearchService
+    public class PhotoService: IPhotoService
     {
         private readonly IPhotoRepository photoRepository;
         private readonly IImageRepository imageRepository;
+        private readonly IFlickerEncoder encoder;
 
-        public SearchService(
+        public PhotoService(
             IPhotoRepository photoRepository,
-            IImageRepository imageRepository)
+            IImageRepository imageRepository,
+            IFlickerEncoder encoder)
         {
             this.photoRepository = photoRepository;
             this.imageRepository = imageRepository;
+            this.encoder = encoder;
         }
 
         public IList<Photo> Search(string text, int page)
         {
-            var infos = photoRepository.Search(text, page);
+            var foundPhotos = photoRepository.Search(text, page);
 
             var tasks = new List<Task<byte[]>>();
             var result = new List<Photo>();
 
-            foreach (var info in infos)
+            foreach (var foundPhoto in foundPhotos)
             {
-                var photo = new Photo { Id = info.Id };
+                var id = encoder.Encode(foundPhoto.Id);
+                var photo = new Photo { Id = id };
                 var task = imageRepository
-                        .GetSmallImage(
-                            info.Id,info.Secret,
-                            info.Server,info.Farm);
+                        .GetSmallImage(foundPhoto);
 
                 task.ContinueWith(t =>
                 {

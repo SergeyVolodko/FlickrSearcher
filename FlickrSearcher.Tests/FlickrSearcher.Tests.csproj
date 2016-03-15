@@ -102,12 +102,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdHocTests.cs" />
+    <Compile Include="Data\PhotoServiceSutBuilder.cs" />
+    <Compile Include="FlickerEncoderTests.cs" />
     <Compile Include="Infrastructure\AutoNSubstituteDataAttribute.cs" />
     <Compile Include="Infrastructure\ControllerAutoDataAttribute.cs" />
     <Compile Include="Infrastructure\WebApi.cs" />
+    <Compile Include="PhotoServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchControllerTests.cs" />
-    <Compile Include="SearchServiceTests.cs" />
+    <Compile Include="PhotoControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FlickrSearcher\FlickrSearcher.csproj">
