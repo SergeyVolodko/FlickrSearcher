@@ -16,7 +16,7 @@ namespace FlickrSearcher
 
             config.Formatters.Clear();
             config.Formatters.Add(new JsonMediaTypeFormatter());
-
+            
             config.EnsureInitialized();
 
             return config;

@@ -39,8 +39,6 @@ namespace FlickrSearcher.Search
             var httpClient = new HttpClient();
 
             var url = "https://flic.kr/p/" + imageId;
-
-            var task = httpClient.GetAsync(url);
             
             var response = httpClient.GetAsync(url)
                 .GetAwaiter().GetResult();
