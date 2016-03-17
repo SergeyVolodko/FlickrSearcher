@@ -1,20 +1,261 @@
 ﻿<!DOCTYPE html>
-<html>
+
+<html lang="en-US"
+      class="js rgba multiplebgs backgroundsize borderradius boxshadow textshadow opacity cssanimations csstransforms csstransforms3d csstransitions fontface" >
+      
+
 <head>
     <title>Flicker searcher (Sergey Volodko)</title>
 	<meta charset="utf-8" />
     <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="css/color-scheme.css" rel="stylesheet" />
+    <link href="css/baraja.css" rel="stylesheet" />
+    <link href="css/egret.css" rel="stylesheet" />
+    <link href="css/fancy-buttons.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/animate.css" rel="stylesheet" />
+    <link href="css/linea-icon.css" rel="stylesheet" />
+    <link href="css/responsive.css" rel="stylesheet" />
 </head>
 <body ng-app="searchApp">
 
-    <div class="container" ng-controller="searchController">
-        <div class="row">Search:</div>
-        <div class="row">list goes here {{ number }}</div>
+<div ng-controller="searchController">
+
+    <!--<div class="row">
+        <div class="col-lg-12 text-center">
+            <h2> Photo searcher </h2>
+            <hr class="star-primary">
+        </div>
+    </div>-->
+
+
+
+    <div class="header-section">
+        <!-- sticky-bar Starts-->
+        <div class="sticky-bar-wrap">
+            <div class="sticky-section nav-bg">
+                <div id="topbar-hold" class="nav-hold container">
+                    <!--=== Site Name ===-->
+                    <span class="site-name navbar-brand">Flicker seracher</span>
+                    
+                    <div class="input-group center">
+                        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+
+            </div>
+        </div>
+        <!-- sticky-bar Ends-->
     </div>
 
+    <section id="section-screenshots" class="screenshots-wrap">
+        <div class="container screenshots animated fadeInUp visible" data-animation="fadeInUp" data-animation-delay="1000">
+            <div class="row porfolio-container" style="left: 0px; display: block;">
+                <!--<div class="col-md-10 col-md-offset-1 center section-title">
+                    <h3>Our Latest Projects</h3>
+                </div>-->
+                <!-- Single screenshot starts -->
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                    <div class="screenshot">
+                        <div class="photo-box">
+                            <img src="http://demo.themegret.com/html/egret/images/7.jpg" alt="">
+                            <div class="photo-overlay">
+                                <h4>Wordpress theme</h4>
+                            </div>
+                            <span class="photo-zoom">
+                                <a href="photo-details.html" class="view-project"><i class="fa fa-search-plus fa-2x"></i></a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single screenshot ends -->
 
-    <script src="Scripts/angular.js"></script>
-    <script src="searchApp/searchApp.js"></script>
-    <script src="searchApp/controllers/searchController.js"></script>
+                <!-- Single screenshot starts -->
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                    <div class="screenshot">
+                        <div class="photo-box">
+                            <img src="http://demo.themegret.com/html/egret/images/2.jpg" alt="">
+                            <div class="photo-overlay">
+                                <h4>User Interface design</h4>
+                            </div>
+                            <span class="photo-zoom">
+                                <a href="photo-details.html" class="view-project"><i class="fa fa-search-plus fa-2x"></i></a>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Single screenshot ends -->
+                <!-- Single screenshot starts -->
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                    <div class="screenshot">
+                        <div class="photo-box">
+                            <img src="http://demo.themegret.com/html/egret/images/3.jpg" alt="">
+                            <div class="photo-overlay">
+                                <h4>PSD template design</h4>
+                            </div>
+                            <span class="photo-zoom">
+                                <a href="photo-details.html" class="view-project"><i class="fa fa-search-plus fa-2x"></i></a>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Single screenshot ends -->
+                <!-- Single screenshot starts -->
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                    <div class="screenshot">
+                        <div class="photo-box">
+                            <img src="http://demo.themegret.com/html/egret/images/4.jpg" alt="">
+                            <div class="photo-overlay">
+                                <h4>User Experience design</h4>
+                            </div>
+                            <span class="photo-zoom">
+                                <a href="photo-details.html" class="view-project"><i class="fa fa-search-plus fa-2x"></i></a>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Single screenshot ends -->
+                <!-- Single screenshot starts -->
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                    <div class="screenshot">
+                        <div class="photo-box">
+                            <img src="http://demo.themegret.com/html/egret/images/5.jpg" alt="">
+                            <div class="photo-overlay">
+                                <h4>Page builder plugin</h4>
+                            </div>
+                            <span class="photo-zoom">
+                                <a href="photo-details.html" class="view-project"><i class="fa fa-search-plus fa-2x"></i></a>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Single screenshot ends -->
+                <!-- Single screenshot starts -->
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                    <div class="screenshot">
+                        <div class="photo-box">
+                            <img src="http://demo.themegret.com/html/egret/images/6.jpg" alt="">
+                            <div class="photo-overlay">
+                                <h4>Corporate website</h4>
+                            </div>
+                            <span class="photo-zoom">
+                                <a href="photo-details.html" class="view-project"><i class="fa fa-search-plus fa-2x"></i></a>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Single screenshot ends -->
+
+            </div>
+
+            <div id="portfolio-loader" class="center" style="display: none;">
+                <div class="loading-circle fa-spin"></div>
+            </div> <!--=== Portfolio loader ===-->
+
+            <div id="portfolio-load" style="display: none; left: 105%;">
+                <div class="portfolio-project">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1 center section-title">
+                            <h4>Project Title 2</h4>
+                        </div>
+                        <div class="col-md-5 project-photo">
+                            <img src="http://demo.themegret.com/html/egret/images/8.jpg" alt="">
+                        </div>
+                        <div class="col-md-3 project-details">
+                            <h5>Project Details 2</h5>
+                            <ul class="details-list">
+                                <li><i class="fa fa-th-list"></i> <strong class="strong">Category: </strong> Project category</li>
+                                <li><i class="fa fa-user"></i> <strong class="strong">Designer: </strong> MH Rafi</li>
+                                <li><i class="fa fa-calendar"></i> <strong class="strong">Date: </strong> 27 Dec 2014</li>
+                                <li><i class="fa fa-group"></i> <strong class="strong">Client: </strong> Jhone Doe</li>
+                                <li><i class="fa fa-link"></i> <strong class="strong">Project url: </strong> <a href="#"><strong>themegret</strong></a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 project-info">
+                            <h5>Project Info 2</h5>
+                            <p>
+                                Without. Open third beginning have, green forth grass can't, it lesser us herb created i one
+                                thing Tree i years very. Man itself in multiply after fly had give sixth waters. First you'll won't sixth moving.
+                                Man itself in multiply after fly had give sixth waters. First you'll won't sixth moving.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div><!--=== ajax content will be loaded here ===-->
+
+            <div class="col-md-12 center back-button" style="display: none;">
+                <a class="backToProject fancy-button button-line bell btn-col" href="#">
+                    Back
+                    <span class="icon">
+                        <i class="fa fa-arrow-left"></i>
+                    </span>
+                </a>
+            </div><!--=== Single portfolio back button ===-->
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+
+
+        <!--<div class="col-sm-4 portfolio-item">
+            <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                <div class="caption">
+                    <div class="caption-content">
+                        <i class="fa fa-search-plus fa-3x"></i>
+                    </div>
+                </div>
+                <img src="http://blackrockdigital.github.io/startbootstrap-freelancer/img/portfolio/cabin.png" class="img-responsive" alt="">
+            </a>
+        </div>-->
+
+
+    </div>
+
+    
+
+</div>
+
+
+<script src="Scripts/angular.js"></script>
+    <script src="Scripts/egret/jquery-1.11.1min..js"></script>
+    <script src="Scripts/egret/modernizr.js"></script>
+    <script src="Scripts/egret/jquery.easing.js"></script>
+    <script src="Scripts/egret/jquery.appear.js"></script>
+    <script src="Scripts/egret/jquery.nicescroll.js"></script>>
+    <script src="Scripts/egret/egret.js"></script>
+    <script src="Scripts/egret/jquery.baraja.js"></script>
+    
+
+<script src="searchApp/searchApp.js"></script>
+<script src="searchApp/controllers/searchController.js"></script>
 </body>
 </html>

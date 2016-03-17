@@ -130,18 +130,40 @@
     <Content Include="WebClient\Content\bootstrap.css.map" />
     <Content Include="WebClient\Content\bootstrap-theme.min.css.map" />
     <Content Include="WebClient\Content\bootstrap-theme.css.map" />
+    <Content Include="WebClient\css\animate.css" />
+    <Content Include="WebClient\css\baraja.css" />
+    <Content Include="WebClient\css\egret.css" />
+    <Content Include="WebClient\css\fancy-buttons.css" />
+    <Content Include="WebClient\css\color-scheme.css" />
+    <Content Include="WebClient\css\linea-icon.css" />
+    <Content Include="WebClient\css\responsive.css" />
+    <Content Include="WebClient\default_cards.html" />
     <Content Include="WebClient\default.html" />
+    <Content Include="WebClient\fonts\fontawesome-webfont.svg" />
     <Content Include="WebClient\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="WebClient\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="WebClient\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="WebClient\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="WebClient\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="WebClient\photo-details.html" />
     <Content Include="WebClient\Scripts\angular-mocks.js" />
     <Content Include="WebClient\Scripts\angular.js" />
     <Content Include="WebClient\Scripts\angular.min.js" />
     <Content Include="WebClient\Scripts\angular.min.js.map" />
+    <Content Include="WebClient\Scripts\egret\egret.js" />
+    <Content Include="WebClient\Scripts\egret\jquery-1.11.1min..js" />
+    <Content Include="WebClient\Scripts\egret\jquery.appear.js" />
+    <Content Include="WebClient\Scripts\egret\jquery.easing.js" />
+    <Content Include="WebClient\Scripts\egret\jquery.nicescroll.js" />
+    <Content Include="WebClient\Scripts\egret\modernizr.js" />
     <Content Include="WebClient\searchApp\controllers\searchController.js" />
     <Content Include="WebClient\searchApp\searchApp.js" />
+    <Content Include="WebClient\css\font-awesome.min.css" />
+    <Content Include="WebClient\fonts\fontawesome-webfont.eot" />
+    <Content Include="WebClient\fonts\fontawesome-webfont.ttf" />
+    <Content Include="WebClient\fonts\fontawesome-webfont.woff" />
+    <Content Include="WebClient\fonts\FontAwesome.otf" />
+    <Content Include="WebClient\Scripts\egret\jquery.baraja.js" />
     <None Include="WebClient\Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="WebClient\Scripts\bootstrap.js" />
     <Content Include="WebClient\Scripts\bootstrap.min.js" />
@@ -164,7 +186,9 @@
     <Compile Include="Search\PhotoService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="WebClient\img\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

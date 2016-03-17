@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+
+<html lang="en-US"
+      class="js rgba multiplebgs backgroundsize borderradius boxshadow textshadow opacity cssanimations csstransforms csstransforms3d csstransitions fontface" >
+      
+
+<head>
+    <title>Flicker searcher (Sergey Volodko)</title>
+	<meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="css/baraja.css" rel="stylesheet" />
+    <link href="css/egret.css" rel="stylesheet" />
+    <link href="css/fancy-buttons.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/animate.css" rel="stylesheet" />
+    <link href="css/linea-icon.css" rel="stylesheet" />
+</head>
+<body ng-app="searchApp">
+
+<div ng-controller="searchController">
+
+    <!--<div class="row">
+        <div class="col-lg-12 text-center">
+            <h2> Photo searcher </h2>
+            <hr class="star-primary">
+        </div>
+    </div>-->
+
+
+
+    <div class="header-section">
+        <!-- sticky-bar Starts-->
+        <div class="sticky-bar-wrap">
+            <div class="sticky-section nav-bg">
+                <div id="topbar-hold" class="nav-hold container">
+                    <!--=== Site Name ===-->
+                    <span class="site-name navbar-brand">Flicker seracher</span>
+                </div>
+            </div>
+        </div>
+        <!-- sticky-bar Ends-->
+        <!--=== Header section Ends ===-->
+        
+    </div>
+
+
+
+
+    <div class="container features center">
+        <div class="row">
+            <div class="col-lg-12">
+                <!--Features container Starts -->
+                <ul id="card-ul" class="features-hold baraja-container">
+
+                    <!-- Single Feature Starts -->
+                    <li class="single-feature" title="Card style" style="z-index: 1003; transform-origin: 25% 100% 0px; transition: transform 500ms ease-out 0ms; transform: translate(0px) rotate(-6.42857deg);">
+                        <img src="http://demo.themegret.com/html/egret/images/8.jpg" 
+                             alt="" class="feature-image"><!-- Feature Icon -->
+                        <h4 class="feature-title color-scheme">Card style</h4>
+                        <p class="feature-text">
+                            Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut.
+                        </p>
+
+                        <a href="#" class="fancy-button button-line btn-col small vertical">
+                            Details
+                            <span class="icon">
+                                <i class="fa fa-leaf"></i>
+                            </span>
+                        </a>
+
+                    </li>
+                    <!-- Single Feature Ends -->
+                    <!-- Single Feature Starts -->
+                    <li class="single-feature" title="50+ SVG Icon included" style="z-index: 1002; transform-origin: 25% 100% 0px; transition: transform 500ms ease-out 0ms; transform: translate(0px) rotate(-19.2857deg);">
+                        <img src="http://demo.themegret.com/html/egret/images/7.jpg"
+                             alt="" class="feature-image"><!-- Feature Icon -->
+                        <h4 class="feature-title color-scheme">50+ SVG Icon included</h4>
+                        <p class="feature-text">
+                            Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
+                        </p>
+                        <a href="#" class="fancy-button button-line btn-col small zoom">
+                            Details
+                            <span class="icon">
+                                <i class="fa fa-leaf"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <!-- Single Feature Ends -->
+                    <!-- Single Feature Starts -->
+                    <li class="single-feature" title="MailChimp Ready" style="z-index: 1001; transform-origin: 25% 100% 0px; transition: transform 500ms ease-out 0ms; transform: translate(0px) rotate(-32.1429deg);">
+                        <img src="http://demo.themegret.com/html/egret/images/6.jpg"
+                             alt="" class="feature-image"><!-- Feature Icon -->
+                        <h4 class="feature-title color-scheme">MailChimp Ready</h4>
+                        <p class="feature-text">
+                            Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
+                        </p>
+                        <a href="#" class="fancy-button button-line btn-col small zoom">
+                            Details
+                            <span class="icon">
+                                <i class="fa fa-leaf"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <!-- Single Feature Ends -->
+                    <!-- Single Feature Starts -->
+                    <li class="single-feature" title="4 home style" style="z-index: 1000; transform-origin: 25% 100% 0px; transition: transform 500ms ease-out 0ms; transform: translate(0px) rotate(-45deg);">
+                        <img src="http://blackrockdigital.github.io/startbootstrap-freelancer/img/portfolio/cabin.png"
+                             alt="" class="feature-image"><!-- Feature Icon -->
+                        <h4 class="feature-title color-scheme">4 home style</h4>
+                        <p class="feature-text">
+                            Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
+                        </p>
+                        <a href="#" class="fancy-button button-line btn-col small zoom">
+                            Details
+                            <span class="icon">
+                                <i class="fa fa-leaf"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <!-- Single Feature Ends -->
+                    <!-- Single Feature Starts -->
+                    <li class="single-feature" title="Parallax Backgrounds" style="z-index: 1007; transform-origin: 25% 100% 0px; transition: transform 500ms ease-out 0ms; transform: translate(0px) rotate(45deg);">
+                        <img src="http://blackrockdigital.github.io/startbootstrap-freelancer/img/portfolio/cabin.png"
+                             alt="" class="feature-image"><!-- Feature Icon -->
+                        <h4 class="feature-title color-scheme">Parallax Backgrounds</h4>
+                        <p class="feature-text">
+                            Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
+                        </p>
+                        <a href="#" class="fancy-button button-line btn-col small zoom">
+                            Details
+                            <span class="icon">
+                                <i class="fa fa-leaf"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <!-- Single Feature Ends -->
+                    <!-- Single Feature Starts -->
+                    <li class="single-feature" title="Ajax contact form" style="z-index: 1006; transform-origin: 25% 100% 0px; transition: transform 500ms ease-out 0ms; transform: translate(0px) rotate(32.1429deg);">
+                        <img src="http://demo.themegret.com/html/egret/images/5.jpg"
+                             alt="" class="feature-image"><!-- Feature Icon -->
+                        <h4 class="feature-title color-scheme">Ajax contact form</h4>
+                        <p class="feature-text">
+                            Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
+                        </p>
+                        <a href="#" class="fancy-button button-line btn-col small zoom">
+                            Details
+                            <span class="icon">
+                                <i class="fa fa-leaf"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <!-- Single Feature Ends -->
+                    <!-- Single Feature Starts -->
+                    <li class="single-feature" title="unlimited Google fonts" style="z-index: 1005; transform-origin: 25% 100% 0px; transition: transform 500ms ease-out 0ms; transform: translate(0px) rotate(19.2857deg);">
+                        <img src="http://blackrockdigital.github.io/startbootstrap-freelancer/img/portfolio/cabin.png"
+                             alt="" class="feature-image"><!-- Feature Icon -->
+                        <h4 class="feature-title color-scheme">unlimited Google fonts</h4>
+                        <p class="feature-text">
+                            Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
+                        </p>
+                        <a href="#" class="fancy-button button-line btn-col small zoom">
+                            Details
+                            <span class="icon">
+                                <i class="fa fa-leaf"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <!-- Single Feature Ends -->
+                    <!-- Single Feature Starts -->
+                    <li class="single-feature" title="Feature heading" style="z-index: 1004; transform-origin: 25% 100% 0px; transition: transform 500ms ease-out 0ms; transform: translate(0px) rotate(6.42857deg);">
+                        <img src="http://blackrockdigital.github.io/startbootstrap-freelancer/img/portfolio/cabin.png"
+                             alt="" class="feature-image"><!-- Feature Icon -->
+                        <h4 class="feature-title color-scheme">Feature heading</h4>
+                        <p class="feature-text">
+                            Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
+                        </p>
+                        <a href="#" class="fancy-button button-line btn-col small zoom">
+                            Details
+                            <span class="icon">
+                                <i class="fa fa-leaf"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <!-- Single Feature Ends -->
+                </ul>
+                <!--Features container Ends -->
+                <!-- Features Controls Starts -->
+                <div class="features-control relative">
+                    <button class="control-icon fancy-button button-line no-text btn-col bell" id="feature-prev" title="Previous">
+                        <span class="icon">
+                            <i class="fa fa-arrow-left"></i>
+                        </span>
+                    </button>
+                    <button class="control-icon fancy-button button-line no-text btn-col zoom" id="feature-expand" title="Expand">
+                        <span class="icon">
+                            <i class="fa fa-expand"></i>
+                        </span>
+                    </button>
+                    <button class="control-icon fancy-button button-line no-text btn-col zoom" id="feature-close" title="Collapse">
+                        <span class="icon">
+                            <i class="fa fa-compress"></i>
+                        </span>
+                    </button>
+                    <button class="control-icon fancy-button button-line no-text btn-col bell" id="feature-next" title="Next">
+                        <span class="icon">
+                            <i class="fa fa-arrow-right"></i>
+                        </span>
+                    </button>
+                </div>
+                <!-- Features Controls Ends -->
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row">
+
+
+        <!--<div class="col-sm-4 portfolio-item">
+            <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                <div class="caption">
+                    <div class="caption-content">
+                        <i class="fa fa-search-plus fa-3x"></i>
+                    </div>
+                </div>
+                <img src="http://blackrockdigital.github.io/startbootstrap-freelancer/img/portfolio/cabin.png" class="img-responsive" alt="">
+            </a>
+        </div>-->
+
+
+    </div>
+
+    
+
+</div>
+
+
+<script src="Scripts/angular.js"></script>
+<script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="Scripts/egret/modernizr.js"></script>
+    <script src="Scripts/egret/jquery.appear.js"></script>
+    <script src="Scripts/egret/jquery.nicescroll.js"></script>>
+    <script src="Scripts/egret/egret.js"></script>
+    <script src="Scripts/egret/jquery.baraja.js"></script>
+    
+
+<script src="searchApp/searchApp.js"></script>
+<script src="searchApp/controllers/searchController.js"></script>
+</body>
+</html>

@@ -4,8 +4,7 @@ namespace FlickrSearcher.Search
 {
     public class PhotoModule : Module
     {
-        protected override void Load(
-            ContainerBuilder builder)
+        protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<PhotoRepository>()
                 .As<IPhotoRepository>();
