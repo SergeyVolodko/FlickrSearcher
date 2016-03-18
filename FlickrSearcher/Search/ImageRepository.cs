@@ -22,7 +22,7 @@ namespace FlickrSearcher.Search
 
             var url = string.Format(
                 "https://farm{0}.staticflickr.com" +
-                     "/{1}/{2}_{3}_m.jpg",
+                     "/{1}/{2}_{3}_q.jpg",
                 flickerPhoto.Farm,
                 flickerPhoto.Server,
                 flickerPhoto.Id,
