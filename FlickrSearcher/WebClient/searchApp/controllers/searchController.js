@@ -23,6 +23,10 @@
                 .then(onPhotosFound, onError);
         }
 
+        $scope.openDetails = function(photoId) {
+            console.log(photoId)
+        }
+
         init();
     }
 

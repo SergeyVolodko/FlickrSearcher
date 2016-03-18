@@ -95,6 +95,51 @@ $(document).ready(function () {
 Screenshot Load
 ----------------------------- */
 $(document).ready(function () {
+        'use strict';
+        $('.view-project').on('click', function (e) {
+            e.preventDefault();
+
+            var href = $(this).attr('href') + ' .portfolio-project',
+                portfolioWrap = $('.porfolio-container'),
+                contentLoaded = $('#portfolio-load'),
+                offset = $('#section-screenshots').offset().top;
+
+            portfolioWrap.animate({ 'left': '-120%' }, { duration: 400, queue: false });
+            portfolioWrap.fadeOut(400);
+            $('html, body').animate({ scrollTop: offset }, { duration: 800, queue: true });
+            setTimeout(function () { $('#portfolio-loader').fadeIn('fast'); }, 300);
+
+            setTimeout(function () {
+                contentLoaded.load(href, function () {
+                    $('#portfolio-loader').fadeOut('fast');
+                    contentLoaded.fadeIn(600).animate({ 'left': '0' }, { duration: 800, queue: false });
+                    $('.back-button').fadeIn(600);
+                });
+            }, 400);
+
+
+
+        });
+
+        $('.backToProject').on('click', function (e) {
+            e.preventDefault();
+
+            var portfolioWrap = $('.porfolio-container'),
+                contentLoaded = $('#portfolio-load');
+
+            contentLoaded.animate({ 'left': '105%' }, { duration: 400, queue: false }).delay(300).fadeOut(400);
+            $(this).parent().fadeOut(400);
+            setTimeout(function () {
+                portfolioWrap.animate({ 'left': '0' }, { duration: 400, queue: false });
+                portfolioWrap.fadeIn(600);
+            }, 500);
+
+        });
+
+});
+
+
+function assignOpenModalLogic () {
     'use strict';
     $('.view-project').on('click', function (e) {
         e.preventDefault();
@@ -136,7 +181,7 @@ $(document).ready(function () {
 
     });
 
-});
+};
 
 
 

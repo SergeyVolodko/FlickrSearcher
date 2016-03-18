@@ -1,6 +1,6 @@
 ﻿(function(app) {
-    
-    var baseUrl = "http://localhost:62276/api/"
+
+    var baseUrl = "http://localhost:62276/api/";
 
     var photoService = function($http) {
 

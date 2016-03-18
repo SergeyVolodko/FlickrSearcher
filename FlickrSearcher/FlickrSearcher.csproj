@@ -115,6 +115,7 @@
     <Content Include="packages.config" />
     <Content Include="WebClient\css\styles.css" />
     <Content Include="WebClient\Scripts\directives\ngEnter.js" />
+    <Content Include="WebClient\Scripts\directives\onFinishRender.js" />
     <Content Include="WebClient\searchApp\services\photoService.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
