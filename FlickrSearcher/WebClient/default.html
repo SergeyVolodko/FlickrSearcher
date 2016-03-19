@@ -17,34 +17,14 @@
     <link href="css/linea-icon.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
 </head>
+
 <body ng-app="searchApp">
-
     <div ng-controller="searchController">
-        <div class="header-section">
-            <!-- sticky-bar Starts-->
-            <div class="sticky-bar-wrap">
-                <div class="sticky-section nav-bg">
-                    <div id="topbar-hold" class="nav-hold container">
-                        <!--=== Site Name ===-->
-                        <span class="navbar-brand">Flicker seracher</span>
 
-                        <div class="input-group center">
-                            <input ng-model="searchText"
-                                   ng-keypress="($event.which === 13)?makeSearch():0"
-                                   class="form-control navbar"
-                                   type="text" placeholder="Search">
-                            <div class="input-group-btn search-input">
-                                <button ng-click="makeSearch()"
-                                        class="btn btn-default navbar" type="submit">
-                                    <i class="glyphicon glyphicon-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- sticky-bar Ends-->
-        </div>
+        <spinner></spinner>
+
+        <search-bar></search-bar>
+
 
         <section id="section-screenshots" class="screenshots-wrap">
 
@@ -54,7 +34,7 @@
                     <div class="found-photo col-md-4 col-sm-4 col-xs-6"
                          ng-repeat="photo in photos"
                          on-finish-render>
-                        <div class="screenshot" >
+                        <div class="screenshot">
                             <div class="photo-box">
                                 <img ng-src="{{photo.image_url}}" alt="">
                                 <div class="photo-overlay">
@@ -70,6 +50,9 @@
                     </div>
 
                 </div>
+
+
+
 
                 <div id="portfolio-loader" class="center" style="display: none;">
                     <div class="loading-circle fa-spin"></div>
@@ -110,13 +93,15 @@
     <script src="Scripts/egret/jquery.baraja.js"></script>
 
 
-    
+
     <script src="searchApp/searchApp.js"></script>
     <script src="searchApp/controllers/searchController.js"></script>
     <script src="searchApp/services/photoService.js"></script>
 
     <script src="Scripts/directives/onFinishRender.js"></script>
-<script src="Scripts/directives/ngEnter.js"></script>
-    
+    <script src="Scripts/directives/ngEnter.js"></script>
+    <script src="views/searchBarDirective.js"></script>
+    <script src="views/spinnerDirective.js"></script>
+
 </body>
 </html>

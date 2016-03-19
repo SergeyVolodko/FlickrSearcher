@@ -1,7 +1,6 @@
 ﻿using ApprovalTests;
 using ApprovalTests.Reporters;
 using ApprovalTests.Writers;
-using FlickrSearcher.Search;
 using FlickrSearcher.Search.Models;
 using FlickrSearcher.Tests.Data;
 using Newtonsoft.Json;

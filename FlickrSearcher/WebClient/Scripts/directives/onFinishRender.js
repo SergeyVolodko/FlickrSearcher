@@ -2,8 +2,7 @@
     .directive('onFinishRender', ['$timeout', '$parse', function ($timeout, $parse) {
         return {
             restrict: 'A',
-            link: function (scope, element, attr) {
-                console.log(window);
+            link: function () {
                 $timeout(function () {
                     window.assignOpenModalLogic();
                 });
