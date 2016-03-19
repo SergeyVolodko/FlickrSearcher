@@ -15,8 +15,14 @@ namespace FlickrSearcher.Search
             builder.RegisterType<FlickerEncoder>()
                 .As<IFlickerEncoder>();
 
+            builder.RegisterType<ImageUrlFactory>()
+                .As<IImageUrlFactory>();
+
             builder.RegisterType<PhotoService>()
                 .As<IPhotoService>();
+
+            builder.RegisterType<ImageProxy>()
+                .As<IImageProxy>();
 
             builder.RegisterType<PhotoController>()
                 .AsSelf();

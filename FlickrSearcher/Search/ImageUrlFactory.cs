@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FlickrSearcher.Search
+﻿namespace FlickrSearcher.Search
 {
     public enum ImageSize
     {
@@ -12,6 +10,7 @@ namespace FlickrSearcher.Search
     public interface IImageUrlFactory
     {
         string CreateImageUrl(FlickerPhoto photo, ImageSize size);
+        string CreateRealImageUrl(int farm, int server, string idAndSecret, string size);
     }
 
     
@@ -31,22 +30,32 @@ namespace FlickrSearcher.Search
             return imgUrl + size;
         }
 
-        //public string CreateSmallImageUrl(
-        //    FlickerPhoto photo)
-        //{
-        //    var imgUrl = CreateImageUrl(photo);
+        public string CreateRealImageUrl(
+            int farm, int server, 
+            string idAndSecret, 
+            string size)
+        {
+            var sizeEnding = "q";
 
-        //    var size = ImageSize.Small.ToString().ToLower();
+            switch (size.ToLower())
+            {
+                case "small":
+                    sizeEnding = "q";break;
+                case "large":
+                    sizeEnding = "b";break;
+                case "icon":
+                    sizeEnding = "s";break;
+                default:
+                    sizeEnding = "q"; break;
+            }
 
-        //    return imgUrl + size;
-        //}
-
-
-        //public string CreateLargeImageUrl(FlickerPhoto photo)
-        //{
-        //    var imgUrl = CreateImageUrl(photo);
-
-        //    return imgUrl + "large";
-        //}
+            return string.Format(
+                "https://farm{0}.staticflickr.com" +
+                     "/{1}/{2}_{3}.jpg",
+                     farm,
+                     server,
+                     idAndSecret,
+                     sizeEnding);
+        }
     }
 }

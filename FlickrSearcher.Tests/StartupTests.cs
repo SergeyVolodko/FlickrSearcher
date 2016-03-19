@@ -30,10 +30,14 @@ namespace FlickrSearcher.Tests
         public void service_registered()
         {
             var encoder = container.Resolve<IFlickerEncoder>();
+            var factory = container.Resolve<IImageUrlFactory>();
             var service = container.Resolve<IPhotoService>();
+            var proxy = container.Resolve<IImageProxy>();
 
             encoder.Should().BeOfType<FlickerEncoder>();
+            factory.Should().BeOfType<ImageUrlFactory>();
             service.Should().BeOfType<PhotoService>();
+            proxy.Should().BeOfType<ImageProxy>();
         }
 
         [Fact]

@@ -1,7 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -12,10 +9,14 @@ namespace FlickrSearcher.Search
     public class PhotoController : ApiController
     {
         private readonly IPhotoService photoService;
+        private readonly IImageProxy proxy;
 
-        public PhotoController(IPhotoService photoService)
+        public PhotoController(
+            IPhotoService photoService,
+            IImageProxy proxy)
         {
             this.photoService = photoService;
+            this.proxy = proxy;
         }
 
         [HttpGet]
@@ -33,12 +34,15 @@ namespace FlickrSearcher.Search
         }
 
         [HttpGet]
-        [Route("proxy/{farm}/{server}/{id_secret}")]
-        public async Task<HttpResponseMessage> Proxy(
-            string farm,
-            string server,
-            string id_secret)
+        [Route("image/{farm}/{server}/{id_secret}/{size}")]
+        public async Task<HttpResponseMessage> ProxyImage(
+            int farm,
+            int server,
+            string id_secret,
+            string size)
         {
+            return await proxy.Redirect(farm, server, id_secret, size);
+
             var url = string.Format(
                 "https://farm{0}.staticflickr.com" +
                 "/{1}/{2}_q.jpg", farm,
@@ -46,7 +50,7 @@ namespace FlickrSearcher.Search
                 id_secret);
 
             var httpClient = new HttpClient();
-            return await httpClient.GetAsync(url);
+            return httpClient.GetAsync(url).GetAwaiter().GetResult();
         }
     }
 }

@@ -180,6 +180,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Search\FlickerEncoder.cs" />
     <Compile Include="Search\FlickerPhotoDetails.cs" />
+    <Compile Include="Search\ImageProxy.cs" />
     <Compile Include="Search\ImageRepository.cs" />
     <Compile Include="Search\ImageUrlFactory.cs" />
     <Compile Include="Search\Photo.cs" />
