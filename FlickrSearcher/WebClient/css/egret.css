@@ -424,7 +424,7 @@ left: calc(50% - 110px);
 #section-footer {
 	padding-top: 80px;
 	padding-bottom: 80px;
-	background: #333;
+	background: black;
 	color:#e5e5e5;
 }
 
