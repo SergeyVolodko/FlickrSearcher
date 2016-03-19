@@ -30,23 +30,20 @@ namespace FlickrSearcher.Search.Services
 
             var result = new List<Photo>();
 
-            foreach (var foundPhoto in foundPhotos)
+            foreach (var photo in foundPhotos)
             {
                 var imgUrl = urlFactory
-                    .CreateImageUrl(foundPhoto, ImageSize.Small);
+                    .CreateImageUrl(photo, ImageSize.Small);
                 var largeImgUrl = urlFactory
-                    .CreateImageUrl(foundPhoto, ImageSize.Large);
-
-
-                var photo = new Photo
+                    .CreateImageUrl(photo, ImageSize.Large);
+                
+                result.Add(new Photo
                 {
-                    Id = foundPhoto.Id,
-                    Title = foundPhoto.Title,
+                    Id = photo.Id,
+                    Title = photo.Title,
                     ImageUrl = imgUrl,
                     LargeImageUrl = largeImgUrl
-                };
-
-                result.Add(photo);
+                });
             }
 
             return result;
@@ -54,19 +51,19 @@ namespace FlickrSearcher.Search.Services
 
         public PhotoDetails GetPhotoDetails(long photoId)
         {
-            return null;
-            //var details = photoRepository.LoadPhotoDetails(photoId);
-            //var imageId = encoder.Encode(photoId);
-            //var image = imageRepository.GetLargeImage(imageId);
+            var details = photoRepository
+                .LoadPhotoDetails(photoId);
+            var iconUrl = urlFactory
+                .CreateImageUrl(details.OwnerPhoto, ImageSize.Icon);
 
-            //return new PhotoDetails
-            //{
-            //    Id = photoId,
-            //    Image = image,
-            //    Title = details?.Title,
-            //    OwnerName = details?.OwnerName,
-            //    TakenDate = details?.TakenDate
-            //};
+            return new PhotoDetails
+            {
+                Id = photoId,
+                IconUrl = iconUrl,
+                Title = details?.Title,
+                OwnerName = details?.OwnerName,
+                TakenDate = details?.TakenDate
+            };
         }
     }
 }

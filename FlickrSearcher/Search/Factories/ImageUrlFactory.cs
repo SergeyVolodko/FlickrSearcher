@@ -37,23 +37,27 @@ namespace FlickrSearcher.Search.Factories
             string idAndSecret, 
             string size)
         {
-            var sizeEnding = "q";
+            var sizeEnding = "_q";
 
             switch (size.ToLower())
             {
                 case "small":
-                    sizeEnding = "q";break;
+                    sizeEnding = "_q";break;
                 case "large":
-                    sizeEnding = "b";break;
+                    sizeEnding = "_b";break;
                 case "icon":
-                    sizeEnding = "s";break;
+                {
+                    idAndSecret = "buddyicons/" + idAndSecret;
+                    sizeEnding = "";
+                    break;
+                }
                 default:
-                    sizeEnding = "q"; break;
+                    sizeEnding = "_q"; break;
             }
 
             return string.Format(
                 "https://farm{0}.staticflickr.com" +
-                     "/{1}/{2}_{3}.jpg",
+                     "/{1}/{2}{3}.jpg",
                      farm,
                      server,
                      idAndSecret,

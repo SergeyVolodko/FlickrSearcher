@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using FlickrSearcher.Search;
 using FlickrSearcher.Search.Factories;
@@ -84,7 +85,7 @@ namespace FlickrSearcher.Tests.Data
             return this;
         }
 
-        public PhotoServiceSUTBuilder LoadsPhoto(
+        public PhotoServiceSUTBuilder LoadsPhotoDetails(
             long inputPhotoId, 
             FlickerPhotoDetails outputFlickerDetails)
         {
@@ -116,5 +117,35 @@ namespace FlickrSearcher.Tests.Data
 
             return this;
         }
+
+        public PhotoServiceSUTBuilder CreatesIconUrl(
+            FlickerPhoto inputPhoto,
+            string outputIconUrl)
+        {
+            data.ImageUrlFactory
+                .CreateImageUrl(inputPhoto, ImageSize.Icon)
+                .Returns(outputIconUrl);
+
+            return this;
+        }
+
+        public PhotoServiceSUTBuilder LoadsPhotoDetails(
+            FlickerPhotoDetails details)
+        {
+            LoadsPhotoDetails(
+                data.InputPhotoId,
+                details);
+
+            return this;
+        }
+
+
+        public PhotoServiceSUTBuilder LoadsSomePhotoDetails()
+        {
+            LoadsPhotoDetails(fixture.Create<FlickerPhotoDetails>());
+
+            return this;
+        }
+
     }
 }

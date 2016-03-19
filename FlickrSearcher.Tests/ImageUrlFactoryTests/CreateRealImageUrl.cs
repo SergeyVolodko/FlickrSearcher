@@ -1,5 +1,4 @@
-﻿using FlickrSearcher.Search;
-using FlickrSearcher.Search.Factories;
+﻿using FlickrSearcher.Search.Factories;
 using FluentAssertions;
 using Xunit;
 
@@ -13,14 +12,14 @@ namespace FlickrSearcher.Tests.ImageUrlFactoryTests
         private const string urlLarge = "https://farm2.staticflickr.com" +
                             "/1460/25750968675_5c4b5e441a_" +
                             "b.jpg";
-        private const string urlIcon = "https://farm2.staticflickr.com" +
-                             "/1460/25750968675_5c4b5e441a_" +
-                             "s.jpg";
+        private const string urlIcon = "https://farm4.staticflickr.com/" +
+                            "3890/buddyicons/" +
+                            "125349441@N03.jpg";
 
         [Theory]
         [InlineData(2, 1460, "25750968675_5c4b5e441a", "small", urlSmall)]
         [InlineData(2, 1460, "25750968675_5c4b5e441a", "large", urlLarge)]
-        [InlineData(2, 1460, "25750968675_5c4b5e441a", "icon", urlIcon)]
+        [InlineData(4, 3890, "125349441@N03", "icon", urlIcon)]
         [InlineData(2, 1460, "25750968675_5c4b5e441a", "unkonwn", urlSmall)]
 
         public void create_image_url_of_size(

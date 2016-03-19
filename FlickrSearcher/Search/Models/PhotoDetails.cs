@@ -7,7 +7,7 @@ namespace FlickrSearcher.Search.Models
     public class PhotoDetails
     {
         public long Id { get; set; }
-        public byte[] Image { get; set; }
+        public string IconUrl { get; set; }
         public string OwnerName { get; set; }
         public string Title { get; set; }
         public DateTime? TakenDate { get; set; }

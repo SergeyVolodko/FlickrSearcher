@@ -54,7 +54,7 @@ namespace FlickrSearcher.Search.Repoitories
 
             return new FlickerPhotoDetails
             {
-                PhotoId = (string)photo["id"],
+                PhotoId = (long)photo["id"],
                 OwnerName = (string)photo["owner"]["username"],
                 Title = (string)photo["title"]["_content"],
                 TakenDate = (DateTime?)photo["dates"]["taken"]

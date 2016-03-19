@@ -1,4 +1,5 @@
-﻿using FlickrSearcher.Search;
+﻿using FlickrSearcher.Search.Factories;
+using FlickrSearcher.Search.Models;
 using FlickrSearcher.Tests.Data;
 using FlickrSearcher.Tests.Infrastructure;
 using FluentAssertions;
@@ -9,93 +10,78 @@ namespace FlickrSearcher.Tests.PhotoServiceTests
 {
     public class GetPhotoDetails
     {
-        //[Fact]
-        //public void calls_photo_repository_load_details()
-        //{
-        //    // arrange
-        //    var sutData = new PhotoServiceSUTBuilder().Build();
-        //    var sut = sutData.Service;
-        //    var photoRepo = sutData.PhotoRepository;
-        //    var id = sutData.InputPhotoId;
+        [Fact]
+        public void calls_photo_repository_load_details()
+        {
+            // arrange
+            var sutData = new PhotoServiceSUTBuilder()
+                .LoadsSomePhotoDetails()
+                .Build();
+            var sut = sutData.Service;
+            var photoRepo = sutData.PhotoRepository;
+            var id = sutData.InputPhotoId;
 
-        //    // act
-        //    sut.GetPhotoDetails(id);
+            // act
+            sut.GetPhotoDetails(id);
 
-        //    // assert
-        //    photoRepo
-        //        .Received()
-        //        .LoadPhotoDetails(id);
-        //}
+            // assert
+            photoRepo
+                .Received()
+                .LoadPhotoDetails(id);
+        }
 
-        //[Fact]
-        //public void calls_flicker_encoder_encode_photo_id()
-        //{
-        //    // arrange
-        //    var sut = new PhotoServiceSUTBuilder().Build();
-        //    var photoId = sut.InputPhotoId;
 
-        //    // act
-        //    sut.CallGetPhotoDetails();
+        [Theory]
+        [AutoNSubstituteData]
+        public void calls_image_url_factory_create_icon_image(
+           FlickerPhotoDetails details,
+           long photoId)
+        {
+            // arrange
+            var sut = new PhotoServiceSUTBuilder()
+                .WithInputPhotoId(photoId)
+                .LoadsPhotoDetails(details)
+                .Build();
 
-        //    // assert
-        //    sut.FlickerEncoder
-        //        .Received()
-        //        .Encode(photoId);
-        //}
+            // act
+            sut.CallGetPhotoDetails();
 
-        //[Theory]
-        //[AutoNSubstituteData]
-        //public void calls_image_repository_get_large_image_with_encoded_photo_id(
-        //    long photoId,
-        //    string imageId)
-        //{
-        //    // arrange
-        //    var sut = new PhotoServiceSUTBuilder()
-        //        .WithInputPhotoId(photoId)
-        //        .EncodesPhotoId(photoId, imageId)
-        //        .Build();
-            
-        //    // act
-        //    sut.CallGetPhotoDetails();
+            // assert
+            sut.ImageUrlFactory
+                .Received()
+                .CreateImageUrl(details.OwnerPhoto, ImageSize.Icon);
+        }
 
-        //    // assert
-        //    sut.ImageRepository
-        //        .Received()
-        //        .GetLargeImage(imageId);
-        //}
+        [Theory]
+        [AutoNSubstituteData]
+        public void returns_photo_details_with_large_image(
+            FlickerPhotoDetails details,
+            string iconUrl)
+        {
+            // arrange
+            var sut = new PhotoServiceSUTBuilder()
+                .LoadsPhotoDetails(details)
+                .CreatesIconUrl(details.OwnerPhoto, iconUrl)
+                .Build();
 
-        //[Theory]
-        //[AutoNSubstituteData]
-        //public void returns_photo_details_with_large_image(
-        //    long photoId,
-        //    FlickerPhotoDetails details,
-        //    string imageId,
-        //    byte[] image)
-        //{
-        //    // arrange
-        //    var sut = new PhotoServiceSUTBuilder()
-        //        .WithInputPhotoId(photoId)
-        //        .LoadsPhoto(photoId, details)
-        //        .EncodesPhotoId(photoId, imageId)
-        //        .GetsLargeImage(imageId, image)
-        //        .Build();
-            
-        //    var expected = new PhotoDetails
-        //    {
-        //        Id = photoId,
-        //        Image = image,
-        //        Title = details.Title,
-        //        OwnerName = details.OwnerName,
-        //        TakenDate = details.TakenDate
-        //    };
+            details.PhotoId = sut.InputPhotoId;
 
-        //    // act
-        //    var actual = sut.CallGetPhotoDetails();
+            var expected = new PhotoDetails
+            {
+                Id = details.PhotoId,
+                IconUrl = iconUrl,
+                Title = details.Title,
+                OwnerName = details.OwnerName,
+                TakenDate = details.TakenDate
+            };
 
-        //    // assert
-        //    actual
-        //        .ShouldBeEquivalentTo(expected);
-        //}
+            // act
+            var actual = sut.CallGetPhotoDetails();
+
+            // assert
+            actual
+                .ShouldBeEquivalentTo(expected);
+        }
 
 
     }

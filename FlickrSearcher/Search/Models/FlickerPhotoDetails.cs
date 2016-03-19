@@ -7,7 +7,7 @@ namespace FlickrSearcher.Search.Models
     public class FlickerPhotoDetails
     {
         [DataMember(Name = "id")]
-        public string PhotoId { get; set; }
+        public long PhotoId { get; set; }
 
         [DataMember(Name = "owner_name")]
         public string OwnerName { get; set; }
@@ -17,5 +17,8 @@ namespace FlickrSearcher.Search.Models
 
         [DataMember(Name = "taken_date")]
         public DateTime? TakenDate { get; set; }
+
+        [IgnoreDataMember]
+        public FlickerPhoto OwnerPhoto { get; set; }
     }
 }
