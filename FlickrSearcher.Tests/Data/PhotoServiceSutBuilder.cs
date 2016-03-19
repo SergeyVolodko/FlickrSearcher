@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using FlickrSearcher.Search;
+﻿using System.Collections.Generic;
 using FlickrSearcher.Search.Factories;
 using FlickrSearcher.Search.Models;
 using FlickrSearcher.Search.Repoitories;
@@ -71,13 +68,26 @@ namespace FlickrSearcher.Tests.Data
         public PhotoServiceSUTBuilder FindsPhotos(
             List<FlickerPhoto> flickerPhotos)
         {
+            flickerPhotos.ForEach(p=> p.Id = fixture.Create<long>().ToString());
+
             data.PhotoRepository
                 .Find(data.InputText, data.InputPage)
                 .Returns(flickerPhotos);
 
             return this;
         }
-        
+
+
+        public PhotoServiceSUTBuilder FindsSpecificPhotos(
+            List<FlickerPhoto> flickerPhotos)
+        {
+            data.PhotoRepository
+                .Find(data.InputText, data.InputPage)
+                .Returns(flickerPhotos);
+
+            return this;
+        }
+
         public PhotoServiceSUTBuilder WithInputPhotoId(
             long photoId)
         {

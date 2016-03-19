@@ -6,7 +6,7 @@ namespace FlickrSearcher.Search.Models
     public class FlickerPhoto
     {
         [DataMember(Name = "id")]
-        public long Id { get; set; }
+        public string Id { get; set; }
 
         [DataMember(Name = "secret")]
         public string Secret { get; set; }

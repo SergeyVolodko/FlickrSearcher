@@ -39,7 +39,7 @@ namespace FlickrSearcher.Search.Services
                 
                 result.Add(new Photo
                 {
-                    Id = photo.Id,
+                    Id = long.Parse(photo.Id),
                     Title = photo.Title,
                     ImageUrl = imgUrl,
                     LargeImageUrl = largeImgUrl
@@ -54,7 +54,8 @@ namespace FlickrSearcher.Search.Services
             var details = photoRepository
                 .LoadPhotoDetails(photoId);
             var iconUrl = urlFactory
-                .CreateImageUrl(details.OwnerPhoto, ImageSize.Icon);
+                .CreateImageUrl(
+                    details.OwnerPhoto, ImageSize.Icon);
 
             return new PhotoDetails
             {

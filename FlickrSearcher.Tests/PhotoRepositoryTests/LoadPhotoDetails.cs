@@ -1,7 +1,6 @@
 ﻿using ApprovalTests;
 using ApprovalTests.Reporters;
 using ApprovalTests.Writers;
-using FlickrSearcher.Search;
 using FlickrSearcher.Search.Repoitories;
 using FlickrSearcher.Tests.Data;
 using Newtonsoft.Json;
@@ -25,7 +24,7 @@ namespace FlickrSearcher.Tests.PhotoRepositoryTests
             var json = JsonConvert.SerializeObject(actual, Formatting.Indented);
 
             var writer = new ConfigurableTempTextFileWriter(
-                Consts.ApprovalsFolder + @"\photo_repo_load_details_result_approval.json",
+                Consts.ApprovalsFolder + @"\photo_repo_load_details_result_approved.json",
                 json);
 
             Approvals.Verify(writer);

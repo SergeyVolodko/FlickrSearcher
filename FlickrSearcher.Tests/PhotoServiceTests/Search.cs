@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using FlickrSearcher.Search;
 using FlickrSearcher.Search.Factories;
 using FlickrSearcher.Search.Models;
 using FlickrSearcher.Tests.Data;
@@ -77,6 +75,8 @@ namespace FlickrSearcher.Tests.PhotoServiceTests
         [Theory]
         [AutoNSubstituteData]
         public void returns_photos_with_photo_id_title_and_img_urls(
+            long photo1Id,
+            long photo2Id,
             FlickerPhoto photo1,
             FlickerPhoto photo2,
             string smallImgUrl1,
@@ -85,10 +85,12 @@ namespace FlickrSearcher.Tests.PhotoServiceTests
             string largeImgUrl2)
         {
             // arrange
+            photo1.Id = photo1Id.ToString();
+            photo2.Id = photo2Id.ToString();
             var photos = new List<FlickerPhoto> { photo1, photo2 };
 
             var sut = new PhotoServiceSUTBuilder()
-               .FindsPhotos(photos)
+               .FindsSpecificPhotos(photos)
                .CreatesSmallImageUrl(photo1, smallImgUrl1)
                .CreatesSmallImageUrl(photo2, smallImgUrl2)
                .CreatesLargeImageUrl(photo1, largeImgUrl1)
@@ -98,12 +100,12 @@ namespace FlickrSearcher.Tests.PhotoServiceTests
             var expected = new List<Photo>
             {
                 new Photo {
-                    Id = photo1.Id,
+                    Id = photo1Id,
                     ImageUrl = smallImgUrl1,
                     LargeImageUrl = largeImgUrl1,
                     Title = photo1.Title },
                 new Photo {
-                    Id = photo2.Id,
+                    Id = photo2Id,
                     ImageUrl = smallImgUrl2,
                     LargeImageUrl = largeImgUrl2,
                     Title = photo2.Title }

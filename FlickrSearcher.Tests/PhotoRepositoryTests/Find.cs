@@ -11,7 +11,7 @@ namespace FlickrSearcher.Tests.PhotoRepositoryTests
     [UseReporter(typeof(DiffReporter))]
     public class Find
     {
-        [Fact]
+        //[Fact]
         public void approval()
         {
             // arrange
@@ -24,7 +24,7 @@ namespace FlickrSearcher.Tests.PhotoRepositoryTests
             var json = JsonConvert.SerializeObject(actual, Formatting.Indented);
 
             var writer = new ConfigurableTempTextFileWriter(
-                Consts.ApprovalsFolder + @"\photo_repo_find_result_approval.json", 
+                Consts.ApprovalsFolder + @"\photo_repo_find_result_approved.json", 
                 json);
 
             Approvals.Verify(writer);

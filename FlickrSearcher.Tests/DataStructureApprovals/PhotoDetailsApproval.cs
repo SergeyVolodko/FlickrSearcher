@@ -1,7 +1,7 @@
-﻿using ApprovalTests;
+﻿using System;
+using ApprovalTests;
 using ApprovalTests.Reporters;
 using ApprovalTests.Writers;
-using FlickrSearcher.Search;
 using FlickrSearcher.Search.Models;
 using FlickrSearcher.Tests.Data;
 using Newtonsoft.Json;
@@ -9,25 +9,26 @@ using Xunit;
 
 namespace FlickrSearcher.Tests.DataStructureApprovals
 {
-    [UseReporter(typeof (DiffReporter))]
-    public class PhotoApproval
+    [UseReporter(typeof(DiffReporter))]
+    public class PhotoDetailsApproval
     {
         [Fact]
         public void approval()
         {
-            var photo = new Photo
+            var photo = new PhotoDetails
             {
                 Id = 42,
-                ImageUrl = @"http://myurl/api/image/42/small",
-                LargeImageUrl = @"http://myurl/api/image/42/large",
-                Title = "The test"
+                IconUrl = @"http://myurl/api/image/42/icon",
+                OwnerName = "Igor Nikolaev",
+                Title = "The test",
+                TakenDate = new DateTime(2012, 12, 21)
             };
 
             var json = JsonConvert.SerializeObject(
                 photo, Formatting.Indented);
 
             var writer = new ConfigurableTempTextFileWriter(
-               Consts.ApprovalsFolder + @"\photo_approved.json",
+               Consts.ApprovalsFolder + @"\photo_details_approved.json",
                json);
 
             Approvals.Verify(writer);

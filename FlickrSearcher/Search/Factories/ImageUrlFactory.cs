@@ -14,7 +14,6 @@ namespace FlickrSearcher.Search.Factories
         string CreateImageUrl(FlickerPhoto photo, ImageSize size);
         string CreateRealImageUrl(int farm, int server, string idAndSecret, string size);
     }
-
     
     public class ImageUrlFactory: IImageUrlFactory
     {
@@ -22,14 +21,20 @@ namespace FlickrSearcher.Search.Factories
             FlickerPhoto photo,
             ImageSize size)
         {
+            var imageId = $"{photo.Id}_{photo.Secret}";
+            if (size == ImageSize.Icon)
+            {
+                imageId = photo.Id;
+            }
+
             var imgUrl = string.Format(
-                "http://localhost:62276/api/image/{0}/{1}/{2}_{3}/",
+                "http://localhost:62276/api/image/{0}/{1}/{2}/{3}",
                 photo.Farm,
                 photo.Server,
-                photo.Id,
-                photo.Secret);
+                imageId,
+                size.ToString().ToLower());
 
-            return imgUrl + size.ToString().ToLower();
+            return imgUrl;
         }
 
         public string CreateRealImageUrl(

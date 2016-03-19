@@ -50,14 +50,27 @@ namespace FlickrSearcher.Search.Repoitories
 
             var json = MakeGetRequest(url);
 
+            return DeserializePhotoDetails(json);
+        }
+
+        private FlickerPhotoDetails DeserializePhotoDetails(string json)
+        {
             var photo = JObject.Parse(json)["photo"];
+
+            var ownerPhoto = new FlickerPhoto
+            {
+                Id = (string)photo["owner"]["nsid"],
+                Server = (string)photo["owner"]["iconserver"],
+                Farm = (int)photo["owner"]["iconfarm"],
+            };
 
             return new FlickerPhotoDetails
             {
-                PhotoId = (long)photo["id"],
-                OwnerName = (string)photo["owner"]["username"],
-                Title = (string)photo["title"]["_content"],
-                TakenDate = (DateTime?)photo["dates"]["taken"]
+                PhotoId = (long) photo["id"],
+                OwnerName = (string) photo["owner"]["username"],
+                Title = (string) photo["title"]["_content"],
+                TakenDate = (DateTime?) photo["dates"]["taken"],
+                OwnerPhoto = ownerPhoto
             };
         }
 

@@ -131,6 +131,7 @@
   <ItemGroup>
     <Compile Include="AdHocTests.cs" />
     <Compile Include="DataStructureApprovals\PhotoApproval.cs" />
+    <Compile Include="DataStructureApprovals\PhotoDetailsApproval.cs" />
     <Compile Include="Data\Consts.cs" />
     <Compile Include="Data\PhotoServiceSutBuilder.cs" />
     <Compile Include="ImageProxyTests\Redirect.cs" />
@@ -158,13 +159,16 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="test_data\approvals\photo_approval.json">
+    <None Include="test_data\approvals\photo_approved.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="test_data\approvals\photo_repo_load_details_result_approval.json">
+    <None Include="test_data\approvals\photo_details_approved.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="test_data\approvals\photo_repo_find_result_approval.json">
+    <None Include="test_data\approvals\photo_repo_load_details_result_approved.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="test_data\approvals\photo_repo_find_result_approved.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
