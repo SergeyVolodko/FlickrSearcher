@@ -1,4 +1,5 @@
 ﻿using FlickrSearcher.Search;
+using FlickrSearcher.Search.Factories;
 using FluentAssertions;
 using Xunit;
 
@@ -7,14 +8,14 @@ namespace FlickrSearcher.Tests.ImageUrlFactoryTests
     public class CreateRealImageUrl
     {
         private const string urlSmall = "https://farm2.staticflickr.com" +
-                             "/1460" +
-                             "/25750968675_5c4b5e441a_q.jpg";
+                            "/1460/25750968675_5c4b5e441a_" +
+                            "q.jpg";
         private const string urlLarge = "https://farm2.staticflickr.com" +
-                             "/1460" +
-                             "/25750968675_5c4b5e441a_b.jpg";
+                            "/1460/25750968675_5c4b5e441a_" +
+                            "b.jpg";
         private const string urlIcon = "https://farm2.staticflickr.com" +
-                             "/1460" +
-                             "/25750968675_5c4b5e441a_s.jpg";
+                             "/1460/25750968675_5c4b5e441a_" +
+                             "s.jpg";
 
         [Theory]
         [InlineData(2, 1460, "25750968675_5c4b5e441a", "small", urlSmall)]

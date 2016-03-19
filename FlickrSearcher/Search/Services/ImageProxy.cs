@@ -1,15 +1,14 @@
-﻿
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
+using FlickrSearcher.Search.Factories;
 
-namespace FlickrSearcher.Search
+namespace FlickrSearcher.Search.Services
 {
     public interface IImageProxy
     {
         Task<HttpResponseMessage> Redirect(int farm, int server, string idAndSecret, string size);
     }
-
-
+    
     public class ImageProxy: IImageProxy
     {
         private readonly IImageUrlFactory urlFactory;

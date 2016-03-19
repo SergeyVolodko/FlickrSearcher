@@ -178,18 +178,16 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Search\FlickerEncoder.cs" />
-    <Compile Include="Search\FlickerPhotoDetails.cs" />
-    <Compile Include="Search\ImageProxy.cs" />
-    <Compile Include="Search\ImageRepository.cs" />
-    <Compile Include="Search\ImageUrlFactory.cs" />
-    <Compile Include="Search\Photo.cs" />
-    <Compile Include="Search\FlickerPhoto.cs" />
-    <Compile Include="Search\PhotoDetails.cs" />
+    <Compile Include="Search\Factories\ImageUrlFactory.cs" />
+    <Compile Include="Search\Models\FlickerPhoto.cs" />
+    <Compile Include="Search\Models\FlickerPhotoDetails.cs" />
+    <Compile Include="Search\Models\Photo.cs" />
+    <Compile Include="Search\Models\PhotoDetails.cs" />
     <Compile Include="Search\PhotoModule.cs" />
-    <Compile Include="Search\PhotoRepository.cs" />
     <Compile Include="Search\PhotoController.cs" />
-    <Compile Include="Search\PhotoService.cs" />
+    <Compile Include="Search\Repoitories\PhotoRepository.cs" />
+    <Compile Include="Search\Services\ImageProxy.cs" />
+    <Compile Include="Search\Services\PhotoService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

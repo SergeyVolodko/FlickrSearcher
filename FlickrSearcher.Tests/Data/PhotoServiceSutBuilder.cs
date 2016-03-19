@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using FlickrSearcher.Search;
+using FlickrSearcher.Search.Factories;
+using FlickrSearcher.Search.Models;
+using FlickrSearcher.Search.Repoitories;
+using FlickrSearcher.Search.Services;
 using NSubstitute;
 using Ploeh.AutoFixture;
 
@@ -16,11 +20,7 @@ namespace FlickrSearcher.Tests.Data
 
         public PhotoService Service;
 
-        public IFlickerEncoder FlickerEncoder;
-
         public IPhotoRepository PhotoRepository;
-
-        public IImageRepository ImageRepository;
 
         public IImageUrlFactory ImageUrlFactory;
 
@@ -43,12 +43,9 @@ namespace FlickrSearcher.Tests.Data
         public PhotoServiceSUTBuilder()
         {
             var photoRepo = Substitute.For<IPhotoRepository>();
-            var imageRepo = Substitute.For<IImageRepository>();
-            var encoder = Substitute.For<IFlickerEncoder>();
             var urlFactory = Substitute.For<IImageUrlFactory>();
 
-            var sut = new PhotoService(
-                photoRepo, imageRepo, encoder, urlFactory);
+            var sut = new PhotoService(photoRepo, urlFactory);
             
 
             fixture = new Fixture();
@@ -59,8 +56,6 @@ namespace FlickrSearcher.Tests.Data
                 InputPage = fixture.Create<int>(),
                 InputPhotoId = fixture.Create<long>(),
                 PhotoRepository = photoRepo,
-                ImageRepository = imageRepo,
-                FlickerEncoder = encoder,
                 ImageUrlFactory = urlFactory,
 
                 Service = sut
@@ -81,44 +76,11 @@ namespace FlickrSearcher.Tests.Data
 
             return this;
         }
-
-        public PhotoServiceSUTBuilder GetsSmallImage(
-            FlickerPhoto inputFlickerPhoto, 
-            byte[] outputImage)
-        {
-            data.ImageRepository
-                .GetSmallImage(inputFlickerPhoto)
-                .Returns(Task.FromResult(outputImage));
-
-            return this;
-        }
-
-        public PhotoServiceSUTBuilder EncodesPhotoId(
-            long inputId, 
-            string outputEncodedId)
-        {
-            data.FlickerEncoder
-                .Encode(inputId)
-                .Returns(outputEncodedId);
-
-            return this;
-        }
-
+        
         public PhotoServiceSUTBuilder WithInputPhotoId(
             long photoId)
         {
             data.InputPhotoId = photoId;
-            return this;
-        }
-
-        public PhotoServiceSUTBuilder GetsLargeImage(
-            string inputImageId, 
-            byte[] outputImage)
-        {
-            data.ImageRepository
-                .GetLargeImage(inputImageId)
-                .Returns(outputImage);
-
             return this;
         }
 

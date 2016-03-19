@@ -133,10 +133,7 @@
     <Compile Include="DataStructureApprovals\PhotoApproval.cs" />
     <Compile Include="Data\Consts.cs" />
     <Compile Include="Data\PhotoServiceSutBuilder.cs" />
-    <Compile Include="FlickerEncoderTests.cs" />
     <Compile Include="ImageProxyTests\Redirect.cs" />
-    <Compile Include="ImageRepositoryTests\GetLargeImage.cs" />
-    <Compile Include="ImageRepositoryTests\GetSmallImage.cs" />
     <Compile Include="ImageUrlFactoryTests\CreateImageUrl.cs" />
     <Compile Include="ImageUrlFactoryTests\CreateRealImageUrl.cs" />
     <Compile Include="Infrastructure\AutoNSubstituteDataAttribute.cs" />

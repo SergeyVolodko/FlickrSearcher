@@ -1,6 +1,8 @@
 ﻿using System.Net.Http;
 using System.Web.Http;
 using FlickrSearcher.Search;
+using FlickrSearcher.Search.Models;
+using FlickrSearcher.Search.Services;
 using FlickrSearcher.Tests.Infrastructure;
 using FluentAssertions;
 using NSubstitute;

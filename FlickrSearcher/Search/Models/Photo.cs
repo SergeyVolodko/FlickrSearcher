@@ -1,15 +1,12 @@
 ﻿using System.Runtime.Serialization;
 
-namespace FlickrSearcher.Search
+namespace FlickrSearcher.Search.Models
 {
     [DataContract]
     public class Photo
     {
         [DataMember(Name = "id")]
         public long Id { get; set; }
-
-        //[DataMember(Name = "image")]
-        //public byte[] Image { get; set; }
 
         [DataMember(Name = "image_url")]
         public string ImageUrl { get; set; }

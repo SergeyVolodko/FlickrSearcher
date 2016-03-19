@@ -2,6 +2,8 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using FlickrSearcher.Search.Models;
+using FlickrSearcher.Search.Services;
 
 namespace FlickrSearcher.Search
 {
@@ -41,16 +43,8 @@ namespace FlickrSearcher.Search
             string id_secret,
             string size)
         {
-            return await proxy.Redirect(farm, server, id_secret, size);
-
-            var url = string.Format(
-                "https://farm{0}.staticflickr.com" +
-                "/{1}/{2}_q.jpg", farm,
-                server,
-                id_secret);
-
-            var httpClient = new HttpClient();
-            return httpClient.GetAsync(url).GetAwaiter().GetResult();
+            return await proxy
+                .Redirect(farm, server, id_secret, size);
         }
     }
 }

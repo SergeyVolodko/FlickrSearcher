@@ -1,5 +1,8 @@
 ﻿using Autofac;
 using FlickrSearcher.Search;
+using FlickrSearcher.Search.Factories;
+using FlickrSearcher.Search.Repoitories;
+using FlickrSearcher.Search.Services;
 using FluentAssertions;
 using Xunit;
 
@@ -17,25 +20,21 @@ namespace FlickrSearcher.Tests
         }
 
         [Fact]
-        public void repositories_registered()
+        public void repository_and_factory_registered()
         {
             var photoRepo = container.Resolve<IPhotoRepository>();
-            var imageRepo = container.Resolve<IImageRepository>();
+            var factory = container.Resolve<IImageUrlFactory>();
 
             photoRepo.Should().BeOfType<PhotoRepository>();
-            imageRepo.Should().BeOfType<ImageRepository>();
+            factory.Should().BeOfType<ImageUrlFactory>();
         }
 
         [Fact]
-        public void service_registered()
+        public void services_registered()
         {
-            var encoder = container.Resolve<IFlickerEncoder>();
-            var factory = container.Resolve<IImageUrlFactory>();
             var service = container.Resolve<IPhotoService>();
             var proxy = container.Resolve<IImageProxy>();
-
-            encoder.Should().BeOfType<FlickerEncoder>();
-            factory.Should().BeOfType<ImageUrlFactory>();
+            
             service.Should().BeOfType<PhotoService>();
             proxy.Should().BeOfType<ImageProxy>();
         }

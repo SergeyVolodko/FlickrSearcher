@@ -1,4 +1,6 @@
-﻿namespace FlickrSearcher.Search
+﻿using FlickrSearcher.Search.Models;
+
+namespace FlickrSearcher.Search.Factories
 {
     public enum ImageSize
     {
@@ -27,7 +29,7 @@
                 photo.Id,
                 photo.Secret);
 
-            return imgUrl + size;
+            return imgUrl + size.ToString().ToLower();
         }
 
         public string CreateRealImageUrl(

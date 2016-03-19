@@ -48,8 +48,6 @@
 
         <section id="section-screenshots" class="screenshots-wrap">
 
-            <img src="http://localhost:62276/api/image/2/1460/25750968675_5c4b5e441a/icon"/>
-
             <div class="container screenshots animated fadeInUp visible" data-animation="fadeInUp" data-animation-delay="1000">
                 <div class="row porfolio-container" style="left: 0px; display: block;">
 
@@ -58,7 +56,7 @@
                          on-finish-render>
                         <div class="screenshot" >
                             <div class="photo-box">
-                                <img ng-src="data:image/JPEG;base64,{{photo.image}}" alt="">
+                                <img ng-src="{{photo.image_url}}" alt="">
                                 <div class="photo-overlay">
                                     <h4>{{photo.title}}</h4>
                                 </div>
@@ -70,28 +68,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-                    <!-- Single screenshot starts -->
-                    <div class="col-md-4 col-sm-4 col-xs-6">
-                        <div class="screenshot">
-                            <div class="photo-box">
-                                <img src="http://demo.themegret.com/html/egret/images/6.jpg" alt="">
-                                <div class="photo-overlay">
-                                    <h4>Corporate website</h4>
-                                </div>
-                                <span class="photo-zoom">
-                                    <a href="photo-details.html" class="view-project">
-                                        <i class="fa fa-search-plus fa-2x"></i>
-                                    </a>
-                                </span>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- Single screenshot ends -->
 
                 </div>
 

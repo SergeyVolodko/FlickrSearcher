@@ -1,4 +1,7 @@
 ﻿using Autofac;
+using FlickrSearcher.Search.Factories;
+using FlickrSearcher.Search.Repoitories;
+using FlickrSearcher.Search.Services;
 
 namespace FlickrSearcher.Search
 {
@@ -8,12 +11,6 @@ namespace FlickrSearcher.Search
         {
             builder.RegisterType<PhotoRepository>()
                 .As<IPhotoRepository>();
-
-            builder.RegisterType<ImageRepository>()
-                .As<IImageRepository>();
-
-            builder.RegisterType<FlickerEncoder>()
-                .As<IFlickerEncoder>();
 
             builder.RegisterType<ImageUrlFactory>()
                 .As<IImageUrlFactory>();

@@ -1,4 +1,6 @@
 ﻿using FlickrSearcher.Search;
+using FlickrSearcher.Search.Factories;
+using FlickrSearcher.Search.Models;
 using FluentAssertions;
 using Ploeh.AutoFixture;
 using Xunit;
@@ -17,9 +19,9 @@ namespace FlickrSearcher.Tests.ImageUrlFactoryTests
         }
 
         [Theory]
-        [InlineData(ImageSize.Large, "Large")]
-        [InlineData(ImageSize.Small, "Small")]
-        [InlineData(ImageSize.Icon, "Icon")]
+        [InlineData(ImageSize.Large, "large")]
+        [InlineData(ImageSize.Small, "small")]
+        [InlineData(ImageSize.Icon, "icon")]
         public void create_image_url_of_size(
             ImageSize size,
             string expectedUrlEnding)

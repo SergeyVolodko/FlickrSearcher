@@ -13,7 +13,7 @@
             var randomPage = Math.floor(Math.random() * (42 - 1)) + 1;
 
             photoService
-                .searchPhotos("search", randomPage)
+                .searchPhotos("London", randomPage)
                 .then(onPhotosFound, onError);
         }
 
@@ -24,7 +24,7 @@
         }
 
         $scope.openDetails = function(photoId) {
-            console.log(photoId)
+            console.log(photoId);
         }
 
         init();

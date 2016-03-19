@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 using FlickrSearcher.Search;
+using FlickrSearcher.Search.Services;
 using FlickrSearcher.Tests.Infrastructure;
 using FluentAssertions;
 using NSubstitute;

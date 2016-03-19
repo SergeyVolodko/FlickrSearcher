@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace FlickrSearcher.Search
+namespace FlickrSearcher.Search.Models
 {
     [DataContract]
     public class FlickerPhoto

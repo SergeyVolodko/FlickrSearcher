@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using FlickrSearcher.Search;
+using FlickrSearcher.Search.Factories;
+using FlickrSearcher.Search.Models;
 using FlickrSearcher.Tests.Data;
 using FlickrSearcher.Tests.Infrastructure;
 using FluentAssertions;
