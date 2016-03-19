@@ -1,5 +1,6 @@
 ﻿{
   "id": 42,
-  "image": "AQID",
-  "title": "The test"
+  "image_url": "http://myurl/api/image/42/small",
+  "title": "The test",
+  "large_image_url": "http://myurl/api/image/42/large"
 }

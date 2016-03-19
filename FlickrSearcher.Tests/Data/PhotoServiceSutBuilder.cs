@@ -22,6 +22,8 @@ namespace FlickrSearcher.Tests.Data
 
         public IImageRepository ImageRepository;
 
+        public IImageUrlFactory ImageUrlFactory;
+
         public IList<Photo> CallSearch()
         {
             return Service.Search(InputText, InputPage);
@@ -43,7 +45,11 @@ namespace FlickrSearcher.Tests.Data
             var photoRepo = Substitute.For<IPhotoRepository>();
             var imageRepo = Substitute.For<IImageRepository>();
             var encoder = Substitute.For<IFlickerEncoder>();
-            var sut = new PhotoService(photoRepo, imageRepo, encoder);
+            var urlFactory = Substitute.For<IImageUrlFactory>();
+
+            var sut = new PhotoService(
+                photoRepo, imageRepo, encoder, urlFactory);
+            
 
             fixture = new Fixture();
 
@@ -55,6 +61,7 @@ namespace FlickrSearcher.Tests.Data
                 PhotoRepository = photoRepo,
                 ImageRepository = imageRepo,
                 FlickerEncoder = encoder,
+                ImageUrlFactory = urlFactory,
 
                 Service = sut
             };
@@ -122,6 +129,28 @@ namespace FlickrSearcher.Tests.Data
             data.PhotoRepository
                 .LoadPhotoDetails(inputPhotoId)
                 .Returns(outputFlickerDetails);
+
+            return this;
+        }
+
+        public PhotoServiceSUTBuilder CreatesSmallImageUrl(
+            FlickerPhoto flickerPhoto, 
+            string imageUrl)
+        {
+            data.ImageUrlFactory
+                .CreateImageUrl(flickerPhoto, ImageSize.Small)
+                .Returns(imageUrl);
+
+            return this;
+        }
+
+        public PhotoServiceSUTBuilder CreatesLargeImageUrl(
+            FlickerPhoto flickerPhoto, 
+            string imageUrl)
+        {
+            data.ImageUrlFactory
+                .CreateImageUrl(flickerPhoto, ImageSize.Large)
+                .Returns(imageUrl);
 
             return this;
         }

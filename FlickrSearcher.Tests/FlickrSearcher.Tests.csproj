@@ -136,6 +136,7 @@
     <Compile Include="FlickerEncoderTests.cs" />
     <Compile Include="ImageRepositoryTests\GetLargeImage.cs" />
     <Compile Include="ImageRepositoryTests\GetSmallImage.cs" />
+    <Compile Include="ImageUrlFactoryTests\CreateImageUrl.cs" />
     <Compile Include="Infrastructure\AutoNSubstituteDataAttribute.cs" />
     <Compile Include="Infrastructure\ControllerAutoDataAttribute.cs" />
     <Compile Include="Infrastructure\WebApi.cs" />

@@ -17,7 +17,8 @@ namespace FlickrSearcher.Tests.DataStructureApprovals
             var photo = new Photo
             {
                 Id = 42,
-                Image = new byte[] {1, 2, 3},
+                ImageUrl = @"http://myurl/api/image/42/small",
+                LargeImageUrl = @"http://myurl/api/image/42/large",
                 Title = "The test"
             };
 

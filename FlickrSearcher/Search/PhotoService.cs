@@ -14,6 +14,7 @@ namespace FlickrSearcher.Search
         private readonly IPhotoRepository photoRepository;
         private readonly IImageRepository imageRepository;
         private readonly IFlickerEncoder encoder;
+        private IImageUrlFactory urlFactory;
 
         public PhotoService(
             IPhotoRepository photoRepository,
@@ -25,31 +26,47 @@ namespace FlickrSearcher.Search
             this.encoder = encoder;
         }
 
+        public PhotoService(
+            IPhotoRepository photoRepository,
+            IImageRepository imageRepository, 
+            IFlickerEncoder encoder, 
+            IImageUrlFactory urlFactory) : this(photoRepository, imageRepository, encoder)
+        {
+            this.urlFactory = urlFactory;
+        }
+
         public IList<Photo> Search(string text, int page)
         {
             var foundPhotos = photoRepository.Find(text, page);
 
             var result = new List<Photo>();
-            var tasks = new List<Task<byte[]>>();
+            //var tasks = new List<Task<byte[]>>();
 
             foreach (var foundPhoto in foundPhotos)
             {
+                var imgUrl = urlFactory
+                    .CreateImageUrl(foundPhoto, ImageSize.Small);
+                var largeImgUrl = urlFactory
+                    .CreateImageUrl(foundPhoto, ImageSize.Large);
+
+
                 var photo = new Photo
                 {
                     Id = foundPhoto.Id,
-                    Title = foundPhoto.Title
+                    Title = foundPhoto.Title,
+                    ImageUrl = imgUrl,
+                    LargeImageUrl = largeImgUrl
                 };
-
-                var task = imageRepository.GetSmallImage(foundPhoto);
-                task.ContinueWith(t =>
-                {
-                    photo.Image = t.Result;
-                });
+                //var task = imageRepository.GetSmallImage(foundPhoto);
+                //task.ContinueWith(t =>
+                //{
+                //    photo.Image = t.Result;
+                //});
 
                 result.Add(photo);
-                tasks.Add(task);
+                //tasks.Add(task);
             }
-            Task.WaitAll(tasks.ToArray());
+            //Task.WaitAll(tasks.ToArray());
 
             return result;
         }
