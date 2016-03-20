@@ -30,7 +30,9 @@
 
         <section id="section-screenshots" class="screenshots-wrap">
 
-            <div class="container screenshots animated fadeInUp visible" data-animation="fadeInUp" data-animation-delay="1000">
+            <div class="container screenshots animated fadeInUp visible"
+                 data-animation="fadeInUp" 
+                 data-animation-delay="1000">
                 <div class="row porfolio-container" style="left: 0px; display: block;">
 
                     <div class="found-photo col-md-4 col-sm-4 col-xs-6"
@@ -43,9 +45,11 @@
                                     <h4>{{photo.title}}</h4>
                                 </div>
                                 <span class="photo-zoom">
-                                    <a ng-click="openDetails(photo.id)" href="photo-details.html" class="view-project">
+                                    <a ng-click="openDetails(photo.id, photo.large_image_url)"
+                                       class="view-project">
                                         <i class="fa fa-search-plus fa-2x"></i>
                                     </a>
+                                    <!--href="photo-details.html"--> 
                                 </span>
                             </div>
                         </div>
@@ -53,24 +57,23 @@
 
                 </div>
 
+                <photo-details ng-if="selectedPhoto!=null"></photo-details>
 
 
-
-                <div id="portfolio-loader" class="center" style="display: none;">
+                <!--<div id="portfolio-loader" class="center" style="display: none;">
                     <div class="loading-circle fa-spin"></div>
-                </div> <!--=== Portfolio loader ===-->
-                <div id="portfolio-load" style="display: none; left: 105%;">
-                </div>
-                <!--=== ajax content will be loaded here ===-->
+                </div>-->
+                
+                <div id="portfolio-load" style="display: none; left: 105%;"></div>
 
-                <div class="col-md-12 center back-button" style="display: none;">
+                <div class="col-md-12 center back-button" ng-click="closeDetails()" style="display: none;">
                     <a class="backToProject fancy-button button-line bell btn-col" href="#">
                         Back
                         <span class="icon">
                             <i class="fa fa-arrow-left"></i>
                         </span>
                     </a>
-                </div><!--=== Single portfolio back button ===-->
+                </div>
 
             </div>
         </section>
@@ -105,5 +108,6 @@
     <script src="views/searchBarDirective.js"></script>
     <script src="views/spinnerDirective.js"></script>
     <script src="views/footerDirective.js"></script>
+    <script src="views/detailsDirective.js"></script>
 </body>
 </html>

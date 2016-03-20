@@ -461,7 +461,6 @@ left: calc(50% - 110px);
 #section-screenshots {
 	background-color:#333333;
 	color:#e5e5e5;
-    min-height: 1000px;
 }
 
 .container.screenshots {

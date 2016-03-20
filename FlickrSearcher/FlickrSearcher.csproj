@@ -118,6 +118,8 @@
     <Content Include="WebClient\Scripts\directives\onFinishRender.js" />
     <Content Include="WebClient\searchApp\services\photoService.js" />
     <Content Include="WebClient\views\footer.html" />
+    <Content Include="WebClient\views\detailsDirective.js" />
+    <Content Include="WebClient\views\photo-details.html" />
     <Content Include="WebClient\views\search-bar.html" />
     <Content Include="WebClient\views\spinner.html" />
     <Content Include="WebClient\views\footerDirective.js" />

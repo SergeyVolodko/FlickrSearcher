@@ -1,0 +1,39 @@
+﻿
+
+<div class="portfolio-project">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 center section-title">
+            <h4>{{selectedPhoto.details.title}}</h4>
+        </div>
+        <div class="col-md-10 project-photo">
+            <img src="{{selectedPhoto.large_image_url}}" alt="">
+        </div>
+        <div class="col-md-3 project-details">
+            <h5>Photo details</h5>
+            <ul class="details-list">
+                <li><i class="fa fa-th-list"></i> <strong class="strong">Category: </strong> Project category</li>
+                <li><i class="fa fa-user"></i> <strong class="strong">Owner: </strong>{{selectedPhoto.details.owner_name}}</li>
+                <li><i class="fa fa-calendar"></i> <strong class="strong">Date: </strong>{{selectedPhoto.details.taken_date}}</li>
+            </ul>
+        </div>
+        <div class="col-md-3 project-details">
+            <h5>Owner</h5>
+            <div class="details-list">
+                <img src="{{selectedPhoto.details.icon_url}}"></img>
+                {{selectedPhoto.details.owner_name}}
+            </div>
+        </div>
+
+
+        <!--<div class="col-md-12 center back-button" ng-click="closeDetails()">
+            <a class="backToProject fancy-button button-line bell btn-col" href="#">
+                Back
+                <span class="icon">
+                    <i class="fa fa-arrow-left"></i>
+                </span>
+            </a>
+        </div>-->
+
+
+    </div>
+</div>

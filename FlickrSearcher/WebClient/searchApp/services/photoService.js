@@ -14,6 +14,14 @@
             });
         }
 
+        photoFactory.loadDetails = function (photoId) {
+            return $http({
+                url: baseUrl + "photoDetails/" + photoId,
+                method: "GET"
+            });
+        }
+
+
         return photoFactory;
     }
 
