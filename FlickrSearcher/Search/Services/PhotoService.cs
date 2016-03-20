@@ -62,8 +62,11 @@ namespace FlickrSearcher.Search.Services
                 Id = photoId,
                 IconUrl = iconUrl,
                 Title = details?.Title,
-                OwnerName = details?.OwnerName,
-                TakenDate = details?.TakenDate
+                OwnerUserName = details?.OwnerUserName,
+                OwnerRealName = details?.OwnerRealName,
+                OwnerLocation = details?.OwnerLocation,
+                TakenDate = details?.TakenDate,
+                Tags = details?.Tags
             };
         }
     }

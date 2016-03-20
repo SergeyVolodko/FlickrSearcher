@@ -1,7 +1,13 @@
 ﻿{
   "id": 42,
   "icon_url": "http://myurl/api/image/42/icon",
-  "owner_name": "Igor Nikolaev",
+  "owner_username": "igoryosha",
+  "owner_realname": "Igor Nikolaev",
+  "owner_loaction": "Taxi-taxi",
   "title": "The test",
-  "taken_date": "2012-12-21T00:00:00"
+  "taken_date": "2012-12-21T00:00:00",
+  "tags": [
+    "vipem",
+    "za lubov"
+  ]
 }

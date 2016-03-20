@@ -1,0 +1,27 @@
+﻿<section id="section-screenshots" class="screenshots-wrap">
+    <div class="container screenshots animated fadeInUp visible"
+         data-animation="fadeInUp"
+         data-animation-delay="1000">
+        <div class="row porfolio-container" style="left: 0px; display: block;">
+
+            <div class="found-photo col-md-4 col-sm-4 col-xs-6"
+                 ng-repeat="photo in photos"
+                 on-finish-render>
+                <div class="screenshot">
+                    <div class="photo-box">
+                        <img ng-src="{{photo.image_url}}" alt="">
+                        <div class="photo-overlay">
+                            <h4>{{photo.title}}</h4>
+                        </div>
+                        <span class="photo-zoom">
+                            <a ng-click="openDetails(photo.id, photo.large_image_url)"
+                               class="view-project">
+                                <i class="fa fa-search-plus fa-2x"></i>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

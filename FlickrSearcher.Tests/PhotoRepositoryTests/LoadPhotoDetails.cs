@@ -18,7 +18,7 @@ namespace FlickrSearcher.Tests.PhotoRepositoryTests
             var sut = new PhotoRepository();
 
             // act
-            var actual = sut.LoadPhotoDetails(25224434769);
+            var actual = sut.LoadPhotoDetails(25296558034);
 
             // assert
             var json = JsonConvert.SerializeObject(actual, Formatting.Indented);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using FlickrSearcher.Search.Models;
@@ -57,6 +58,10 @@ namespace FlickrSearcher.Search.Repoitories
         {
             var photo = JObject.Parse(json)["photo"];
 
+            var tags = photo["tags"]["tag"]
+                .Select(t=>t["_content"].ToString())
+                .ToList();
+
             var ownerPhoto = new FlickerPhoto
             {
                 Id = (string)photo["owner"]["nsid"],
@@ -67,10 +72,13 @@ namespace FlickrSearcher.Search.Repoitories
             return new FlickerPhotoDetails
             {
                 PhotoId = (long) photo["id"],
-                OwnerName = (string) photo["owner"]["username"],
+                OwnerUserName = (string) photo["owner"]["username"],
+                OwnerRealName = (string) photo["owner"]["realname"],
+                OwnerLocation = (string) photo["owner"]["location"],
                 Title = (string) photo["title"]["_content"],
                 TakenDate = (DateTime?) photo["dates"]["taken"],
-                OwnerPhoto = ownerPhoto
+                OwnerPhoto = ownerPhoto,
+                Tags = tags
             };
         }
 
