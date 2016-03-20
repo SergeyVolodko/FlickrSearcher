@@ -15,6 +15,7 @@
         var onDetailsLoaded = function (response) {
             $scope.selectedPhoto.details = response.data;
             $scope.isLoading = false;
+            updateModalScroll();
         }
 
         var init = function() {
@@ -37,6 +38,7 @@
             $scope.isLoading = true;
             $scope.selectedPhoto = {};
             $scope.selectedPhoto.large_image_url = imageUrl;
+            updateModalScroll();
             photoService
                 .loadDetails(photoId)
                 .then(onDetailsLoaded, onError);
@@ -44,6 +46,11 @@
 
 
         $scope.closeDetails = function() {
+            //$('#photo-detail-modal').animate({ 'left': '-105%' }, { duration: 400, queue: false }).delay(300).fadeOut(400);
+            //$(this).parent().fadeOut(400);
+            //setTimeout(function() {
+            //    $scope.selectedPhoto = null;
+            //}, 500);
             $scope.selectedPhoto = null;
         }
 

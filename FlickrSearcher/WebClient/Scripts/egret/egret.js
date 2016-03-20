@@ -15,10 +15,31 @@ $(document).ready(function () {
         horizrailenabled: false,
         zindex: 1090
     });
+
+    
 });
 
+function updateModalScroll() {
+    $(".photo-detail-modal").niceScroll({
+        cursorcolor: '#E74C3C',
+        cursoropacitymin: '1',
+        cursorborder: '0px',
+        cursorborderradius: '0px',
+        mousescrollstep: 80,
+        cursorwidth: '5px',
+        cursorminheight: 60,
+        horizrailenabled: false,
+        zindex: 1090
+    });
+    $(".photo-detail-modal")
+        .addClass('scroll-added');
+}
 
 
+$(document).ready(function () {
+    'use strict';
+   
+});
 
 
 /* ----------------------------- 

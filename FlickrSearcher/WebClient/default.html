@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en-US"
-      class="js rgba multiplebgs backgroundsize borderradius boxshadow textshadow opacity cssanimations csstransforms csstransforms3d csstransitions fontface">
+      class="js rgba borderradius boxshadow textshadow opacity cssanimations csstransforms csstransforms3d csstransitions fontface">
 
 
 <head>
@@ -30,7 +30,7 @@
 
         <found-photos></found-photos>
 
-        <photo-details ng-if="selectedPhoto!=null"></photo-details>
+        <photo-details ng-class="{'active': selectedPhoto}"></photo-details>
 
         <footer></footer>
 

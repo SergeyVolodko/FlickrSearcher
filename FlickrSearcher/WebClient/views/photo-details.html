@@ -1,18 +1,20 @@
-﻿<div>
-    <div class="photo-detail-modal-wrapper"></div>
-    <div class="photo-detail-modal">
+﻿
+    <!--<div class="photo-detail-modal-wrapper"></div>-->
+<div class="photo-detail-modal"ng-class="{'active': selectedPhoto}">
+    <div class="photo-detail-container">
         <div class="col-md-10 col-md-offset-1 center section-title">
             <h4>{{selectedPhoto.details.title}}</h4>
         </div>
         <div class="col-md-10 project-photo">
-            <img src="{{selectedPhoto.large_image_url}}" alt="">
+            <img ng-src="{{selectedPhoto.large_image_url}}" alt="">
         </div>
         <div class="col-md-12 project-details">
             <h5>Photo details</h5>
             <ul class="details-list">
                 <li><i class="fa fa-th-list"></i> <strong class="strong">Title: </strong>{{selectedPhoto.details.title}}</li>
                 <li><i class="fa fa-calendar"></i> <strong class="strong">Date: </strong>{{selectedPhoto.details.taken_date}}</li>
-                <li class="tags-list"><i class="fa fa-tags"></i> <strong class="strong">Tags: </strong>
+                <li class="tags-list">
+                    <i class="fa fa-tags"></i> <strong class="strong">Tags: </strong>
                     <i ng-repeat="tag in selectedPhoto.details.tags">#{{tag}}</i>
                 </li>
 
@@ -21,16 +23,21 @@
         <div class="col-md-6 project-details">
             <h5>Owner</h5>
             <div class="details-list">
-                <img class="img-circle" src="{{selectedPhoto.details.icon_url}}"></img>
+                <img class="img-circle"
+                     ng-src="{{selectedPhoto.details.icon_url}}"></img>
                 {{selectedPhoto.details.owner_username}}
-                <div><i class="fa fa-user"></i> <strong class="strong">Real name: </strong>{{selectedPhoto.details.owner_realname}}</div>
-                <div><i class="fa fa-map-marker"></i> <strong class="strong">Location: </strong>{{selectedPhoto.details.owner_location}}</div>
+                <div>
+                    <i class="fa fa-user"></i> <strong class="strong">Real name: </strong>{{selectedPhoto.details.owner_realname}}
+                </div>
+                <div>
+                    <i class="fa fa-map-marker"></i> <strong class="strong">Location: </strong>{{selectedPhoto.details.owner_location}}
+                </div>
             </div>
         </div>
 
-        
+
         <div class="col-md-12 center back-btn" ng-click="closeDetails()">
-            <a class="backToProject fancy-button button-line bell btn-col" href="#">
+            <a class="backToProject fancy-button button-line bell btn-col">
                 Back
                 <span class="icon">
                     <i class="fa fa-arrow-left"></i>
@@ -40,4 +47,4 @@
 
 
     </div>
-</div>
+</div>  

@@ -32,6 +32,7 @@
 	
 	.project-photo, .project-details {
 		margin-bottom: 60px;
+	    min-height: auto;
 	}
 	
 
