@@ -46,12 +46,20 @@
 
 
         $scope.closeDetails = function() {
-            //$('#photo-detail-modal').animate({ 'left': '-105%' }, { duration: 400, queue: false }).delay(300).fadeOut(400);
-            //$(this).parent().fadeOut(400);
-            //setTimeout(function() {
-            //    $scope.selectedPhoto = null;
-            //}, 500);
-            $scope.selectedPhoto = null;
+            //$('photo-details').addClass("unanchor-right");
+            $('.photo-detail-background-blocker').addClass("invisible");
+            $('photo-details').animate({ 'left': '-105%' }, { duration: 400, queue: false }).delay(300).fadeOut(400);
+            ////$(this).parent().fadeOut(400);
+
+            //$("photo-details").addClass("deactivated");
+            setTimeout(function () {
+                $('photo-details').attr('style', function (i, style) {
+                    return style="";
+                });
+            }, 1000);
+            
+           $scope.selectedPhoto = null;
+            
         }
 
 
