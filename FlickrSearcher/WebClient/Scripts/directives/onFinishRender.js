@@ -4,7 +4,7 @@
             restrict: 'A',
             link: function () {
                 $timeout(function () {
-                    window.assignOpenModalLogic();
+                    //window.assignOpenModalLogic();
                 });
             }
         }

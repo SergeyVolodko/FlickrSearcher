@@ -16,6 +16,7 @@
     <link href="css/animate.css" rel="stylesheet" />
     <link href="css/linea-icon.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
 </head>
 
 <body ng-app="searchApp">
@@ -54,31 +55,27 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-                <photo-details ng-if="selectedPhoto!=null"></photo-details>
-
-
-                <!--<div id="portfolio-loader" class="center" style="display: none;">
-                    <div class="loading-circle fa-spin"></div>
-                </div>-->
-                
-                <div id="portfolio-load" style="display: none; left: 105%;"></div>
-
-                <div class="col-md-12 center back-button" ng-click="closeDetails()" style="display: none;">
-                    <a class="backToProject fancy-button button-line bell btn-col" href="#">
-                        Back
-                        <span class="icon">
-                            <i class="fa fa-arrow-left"></i>
-                        </span>
-                    </a>
-                </div>
-
             </div>
         </section>
 
+        <photo-details ng-if="selectedPhoto!=null"></photo-details>
 
+
+        <!--<div id="portfolio-loader" class="center" style="display: none;">
+        <div class="loading-circle fa-spin"></div>
+    </div>-->
+
+        <div id="portfolio-load" style="display: none; left: 105%;"></div>
+
+        <div class="col-md-12 center back-button" ng-click="closeDetails()" style="display: none;">
+            <a class="backToProject fancy-button button-line bell btn-col" href="#">
+                Back
+                <span class="icon">
+                    <i class="fa fa-arrow-left"></i>
+                </span>
+            </a>
+        </div>
 
 
         <footer></footer>

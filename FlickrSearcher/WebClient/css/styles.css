@@ -1,1 +1,26 @@
-﻿.found-photo{}
+﻿.photo-detail-modal {
+    background: #333333;
+    position: absolute;
+    top: 100px;
+    opacity: 1;
+    padding-top: 48px;
+    z-index: 10050;
+    margin-right: auto;
+    margin-left: auto;
+    left: 7%;
+    right: 7%;
+}
+.photo-detail-modal-wrapper {
+    position:fixed;
+	top: 0;
+	left: 0;
+	background-color:gray;
+    opacity: 0.3;
+	width: 100%;
+	height: 100%;
+	z-index: 5000;
+}
+.back-btn {
+    padding-bottom: 48px;
+    color: white;
+}
