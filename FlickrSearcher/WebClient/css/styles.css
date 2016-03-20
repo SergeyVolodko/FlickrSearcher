@@ -24,3 +24,6 @@
     padding-bottom: 50px;
     color: white;
 }
+.tags-list {
+    overflow-wrap: break-word;
+}
