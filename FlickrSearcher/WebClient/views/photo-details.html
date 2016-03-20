@@ -1,6 +1,5 @@
 ﻿
-<div class="photo-detail-background-blocker"></div>
-<div class="photo-detail-modal">
+<div class="photo-detail-modal" ng-class="{'deactivated':!detailsShown}">
     <div class="photo-detail-container">
         <div class="col-md-10 col-md-offset-1 center section-title">
             <h4>{{selectedPhoto.details.title}}</h4>

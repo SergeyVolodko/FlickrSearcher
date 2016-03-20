@@ -3,6 +3,7 @@
     var searchController = function ($scope, photoService) {
         $scope.searchText = "";
         $scope.isLoading = true;
+        $scope.detailsShown = false;
         $scope.selectedPhoto = null;
 
         var onError = function () { $scope.isLoading = false; }
@@ -11,10 +12,10 @@
             $scope.photos = response.data;
             $scope.isLoading = false;
         }
-
         var onDetailsLoaded = function (response) {
             $scope.selectedPhoto.details = response.data;
             $scope.isLoading = false;
+
             updateModalScroll();
         }
 
@@ -36,9 +37,12 @@
         $scope.openDetails = function(photoId, imageUrl) {
             
             $scope.isLoading = true;
+            $scope.detailsShown = true;
             $scope.selectedPhoto = {};
             $scope.selectedPhoto.large_image_url = imageUrl;
+
             updateModalScroll();
+
             photoService
                 .loadDetails(photoId)
                 .then(onDetailsLoaded, onError);
@@ -46,8 +50,10 @@
 
 
         $scope.closeDetails = function() {
+            $scope.detailsShown = false;
             //$('photo-details').addClass("unanchor-right");
-            $('.photo-detail-background-blocker').addClass("invisible");
+            removeModalScroll();
+            //$('.photo-detail-background-blocker').addClass("invisible");
             $('photo-details').animate({ 'left': '-105%' }, { duration: 400, queue: false }).delay(300).fadeOut(400);
             ////$(this).parent().fadeOut(400);
 
@@ -57,9 +63,8 @@
                     return style="";
                 });
             }, 1000);
-            
-           $scope.selectedPhoto = null;
-            
+            $scope.selectedPhoto.large_image_url = null;
+            $scope.selectedPhoto = null;
         }
 
 
