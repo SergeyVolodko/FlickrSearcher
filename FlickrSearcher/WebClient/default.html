@@ -1,22 +1,18 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en-US"
-      >
-<!--class="js rgba borderradius boxshadow textshadow opacity cssanimations csstransforms csstransforms3d csstransitions fontface"-->
+<html lang="en-US">
 
 <head>
     <title>Flicker searcher (Sergey Volodko)</title>
     <meta charset="utf-8" />
     <link href="content/bootstrap/bootstrap.css" rel="stylesheet" />
-    <link href="css/color-scheme.css" rel="stylesheet" />
-    <!--<link href="css/baraja.css" rel="stylesheet" />-->
-    <link href="css/egret.css" rel="stylesheet" />
-    <link href="css/fancy-buttons.css" rel="stylesheet" />
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
-    <link href="css/animate.css" rel="stylesheet" />
-    <!--<link href="css/linea-icon.css" rel="stylesheet" />-->
-    <link href="css/responsive.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet"/>
+    <link href="content/css/color-scheme.css" rel="stylesheet" />
+    <link href="content/css/egret.css" rel="stylesheet" />
+    <link href="content/css/fancy-buttons.css" rel="stylesheet" />
+    <link href="content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="content/css/animate.css" rel="stylesheet" />
+    <link href="content/css/responsive.css" rel="stylesheet" />
+    <link href="content/css/styles.css" rel="stylesheet" />
     <link rel="icon" type="image/ico" href="https://s.yimg.com/pw/favicon.ico">
 </head>
 
@@ -31,32 +27,24 @@
 
         <found-photos on-finish-render></found-photos>
 
-        <photo-details class="invisible"
-                       ng-class="{'active': detailsShown, 'deactivated':!detailsShown}"></photo-details>
+        <photo-details ng-class="{'active': detailsShown, 'deactivated':!detailsShown}"
+                       class="invisible"></photo-details>
 
         <footer></footer>
-
     </div>
 
 
     <script src="Scripts/lib/angular.js"></script>
     <script src="Scripts/lib/jquery-1.11.1min..js"></script>
-    <!--<script src="Scripts/egret/modernizr.js"></script>
-    <script src="Scripts/egret/jquery.easing.js"></script>
-    <script src="Scripts/egret/jquery.appear.js"></script>-->
+    <script src="Scripts/lib/modernizr.js"></script>
     <script src="Scripts/lib/jquery.nicescroll.js"></script>
-    <!--<script src="Scripts/egret/jquery.baraja.js"></script>-->
-
     <script src="Scripts/scrolls.js"></script>
-
-
-
+    
     <script src="searchApp/searchApp.js"></script>
     <script src="searchApp/controllers/searchController.js"></script>
     <script src="searchApp/services/photoService.js"></script>
 
-    <script src="Scripts/directives/onFinishRender.js"></script>
-    <script src="Scripts/directives/ngEnter.js"></script>
+    <script src="scripts/directives/ngEnter.js"></script>
 
     <script src="views/searchBarDirective.js"></script>
     <script src="views/spinnerDirective.js"></script>
