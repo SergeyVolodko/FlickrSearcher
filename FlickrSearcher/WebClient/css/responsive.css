@@ -1,5 +1,9 @@
 ﻿/* ========== Responsive Styles ========== */
 
+.project-photo, .project-details {
+	margin-bottom: 30px;
+	min-height: auto;
+}
 
 
 /* --------- max width 991px -------- */
@@ -63,7 +67,10 @@
 		display:none;
 	}
 
-	
+	.project-photo, .project-details {
+		margin-bottom: 60px;
+	    min-height: auto;
+	}
 	
 }
 

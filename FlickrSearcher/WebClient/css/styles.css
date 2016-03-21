@@ -1,6 +1,4 @@
 ﻿
-
-
 .back-btn {
     padding-bottom: 50px;
     color: white;
@@ -15,15 +13,14 @@
     z-index: 1;
     background-color: rgba(0,0,0,0.5);
     padding-top: 48px;
-   
     margin-right: auto;
     margin-left: auto;
-    
     height: 100%;
     overflow: hidden;
     padding: 7%;
     padding-top: 100px;
 }
+
 .photo-detail-modal.deactivated {
     background-color: transparent;
 }

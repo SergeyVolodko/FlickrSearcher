@@ -40,8 +40,6 @@
             $scope.selectedPhoto = {};
             $scope.selectedPhoto.large_image_url = imageUrl;
 
-            
-
             photoService
                 .loadDetails(photoId)
                 .then(onDetailsLoaded, onError);
