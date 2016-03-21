@@ -17,8 +17,8 @@
 </head>
 
 <body ng-app="searchApp">
-    <div ng-controller="searchController"
-         class="app-container"
+    <div class="app-container"
+         ng-controller="searchController"
          ng-class="{'scroll-removed': detailsShown}">
 
         <spinner ng-show="isLoading"></spinner>
@@ -39,7 +39,7 @@
     <script src="Scripts/lib/modernizr.js"></script>
     <script src="Scripts/lib/jquery.nicescroll.js"></script>
     <script src="Scripts/scrolls.js"></script>
-    
+
     <script src="searchApp/searchApp.js"></script>
     <script src="searchApp/controllers/searchController.js"></script>
     <script src="searchApp/services/photoService.js"></script>
