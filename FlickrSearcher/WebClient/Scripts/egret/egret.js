@@ -58,13 +58,12 @@ function fadeOutPhotoDetails() {
             return style = "";
         });
     }, 1200);
-    $("html").getNiceScroll().show(); //.locked = false;
+    $("html").getNiceScroll().locked = false;
 
 }
 
 function startFadeInPhotoDetails() {
-
-    $("html").getNiceScroll().hide();//.locked = true;
+    $("html").getNiceScroll().locked = true;
     $('photo-details').removeClass("invisible");
 
 }
