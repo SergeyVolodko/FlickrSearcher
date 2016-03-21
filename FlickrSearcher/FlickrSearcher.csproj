@@ -113,9 +113,28 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="WebClient\content\bootstrap\bootstrap-theme.css" />
+    <Content Include="WebClient\content\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="WebClient\content\bootstrap\bootstrap.css" />
+    <Content Include="WebClient\content\bootstrap\bootstrap.min.css" />
     <Content Include="WebClient\css\styles.css" />
     <Content Include="WebClient\Scripts\directives\ngEnter.js" />
     <Content Include="WebClient\Scripts\directives\onFinishRender.js" />
+    <Content Include="WebClient\Scripts\lib\angular-mocks.js" />
+    <Content Include="WebClient\Scripts\lib\angular.js" />
+    <Content Include="WebClient\Scripts\lib\angular.min.js" />
+    <Content Include="WebClient\Scripts\lib\bootstrap.js" />
+    <Content Include="WebClient\Scripts\lib\bootstrap.min.js" />
+    <Content Include="WebClient\Scripts\lib\jquery-1.11.1min..js" />
+    <Content Include="WebClient\content\bootstrap\bootstrap-theme.css.map" />
+    <Content Include="WebClient\content\bootstrap\bootstrap-theme.min.css.map" />
+    <Content Include="WebClient\content\bootstrap\bootstrap.css.map" />
+    <Content Include="WebClient\content\bootstrap\bootstrap.min.css.map" />
+    <None Include="WebClient\Scripts\lib\jquery-1.9.1.intellisense.js" />
+    <Content Include="WebClient\Scripts\lib\jquery-1.9.1.js" />
+    <Content Include="WebClient\Scripts\lib\jquery-1.9.1.min.js" />
+    <Content Include="WebClient\Scripts\lib\jquery.nicescroll.js" />
+    <Content Include="WebClient\Scripts\scrolls.js" />
     <Content Include="WebClient\searchApp\services\photoService.js" />
     <Content Include="WebClient\views\footer.html" />
     <Content Include="WebClient\views\found-photos.html" />
@@ -133,17 +152,11 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="WebClient\Scripts\lib\angular.min.js.map" />
+    <Content Include="WebClient\Scripts\lib\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
-    <Content Include="WebClient\Content\bootstrap-theme.css" />
-    <Content Include="WebClient\Content\bootstrap-theme.min.css" />
-    <Content Include="WebClient\Content\bootstrap.css" />
-    <Content Include="WebClient\Content\bootstrap.min.css" />
-    <Content Include="WebClient\Content\bootstrap.min.css.map" />
-    <Content Include="WebClient\Content\bootstrap.css.map" />
-    <Content Include="WebClient\Content\bootstrap-theme.min.css.map" />
-    <Content Include="WebClient\Content\bootstrap-theme.css.map" />
     <Content Include="WebClient\css\animate.css" />
     <Content Include="WebClient\css\baraja.css" />
     <Content Include="WebClient\css\egret.css" />
@@ -151,7 +164,6 @@
     <Content Include="WebClient\css\color-scheme.css" />
     <Content Include="WebClient\css\linea-icon.css" />
     <Content Include="WebClient\css\responsive.css" />
-    <Content Include="WebClient\default_cards.html" />
     <Content Include="WebClient\default.html" />
     <Content Include="WebClient\fonts\fontawesome-webfont.svg" />
     <Content Include="WebClient\fonts\glyphicons-halflings-regular.svg" />
@@ -159,16 +171,8 @@
     <Content Include="WebClient\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="WebClient\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="WebClient\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="WebClient\photo-details.html" />
-    <Content Include="WebClient\Scripts\angular-mocks.js" />
-    <Content Include="WebClient\Scripts\angular.js" />
-    <Content Include="WebClient\Scripts\angular.min.js" />
-    <Content Include="WebClient\Scripts\angular.min.js.map" />
-    <Content Include="WebClient\scrolls.js" />
-    <Content Include="WebClient\Scripts\egret\jquery-1.11.1min..js" />
     <Content Include="WebClient\Scripts\egret\jquery.appear.js" />
     <Content Include="WebClient\Scripts\egret\jquery.easing.js" />
-    <Content Include="WebClient\Scripts\egret\jquery.nicescroll.js" />
     <Content Include="WebClient\Scripts\egret\modernizr.js" />
     <Content Include="WebClient\searchApp\controllers\searchController.js" />
     <Content Include="WebClient\searchApp\searchApp.js" />
@@ -178,12 +182,6 @@
     <Content Include="WebClient\fonts\fontawesome-webfont.woff" />
     <Content Include="WebClient\fonts\FontAwesome.otf" />
     <Content Include="WebClient\Scripts\egret\jquery.baraja.js" />
-    <None Include="WebClient\Scripts\jquery-1.9.1.intellisense.js" />
-    <Content Include="WebClient\Scripts\bootstrap.js" />
-    <Content Include="WebClient\Scripts\bootstrap.min.js" />
-    <Content Include="WebClient\Scripts\jquery-1.9.1.js" />
-    <Content Include="WebClient\Scripts\jquery-1.9.1.min.js" />
-    <Content Include="WebClient\Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -200,10 +198,7 @@
     <Compile Include="Search\Services\PhotoService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="WebClient\img\" />
-    <Folder Include="WebClient\Scripts\lib\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
