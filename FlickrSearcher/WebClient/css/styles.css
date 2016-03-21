@@ -50,7 +50,7 @@ photo-details.active {
     visibility: visible;
     transition: visibility 2s linear;
     transition: opacity 0.4s ease-in;
-    opacity: 1;
+    /*opacity: 1;*/
     transition: left 2s ease;
 }
 

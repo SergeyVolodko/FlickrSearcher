@@ -31,7 +31,9 @@
 
         <found-photos></found-photos>
 
-        <photo-details class="invisible" ng-class="{'active': detailsShown, 'deactivated':!detailsShown}"></photo-details>
+    <photo-details class="invisible"
+                   on-photo-details-opened
+                   ng-class="{'active': detailsShown, 'deactivated':!detailsShown}"></photo-details>
 
         <footer></footer>
 

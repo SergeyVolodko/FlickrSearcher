@@ -44,7 +44,6 @@
             
             $('photo-details').removeClass("invisible");
             updateModalScroll();
-            $("html").getNiceScroll().lock();
             
 
             photoService
@@ -55,29 +54,15 @@
 
         $scope.closeDetails = function() {
             $scope.detailsShown = false;
-            removeModalScroll();
-            
 
-            $('photo-details').animate({ 'left': '-105%' }, { duration: 400, queue: false }).delay(300).fadeOut(400);
-            $('photo-details').animate({ 'right': '105%' }, { duration: 400, queue: false });
-            
+            fadeOutPhotoDetails();
 
-            setTimeout(function () {
-                $('photo-details').attr('style', function (i, style) {
-                    return style = "";
-                });
+            window.setTimeout(function () {
+                $scope.selectedPhoto.large_image_url = null;
+                $scope.selectedPhoto = null;
+                $scope.$apply();
             }, 1000);
-            $("html").getNiceScroll().locked = false;
-
-            window.setTimeout(clearSelectedPhoto, 1000);
         }
-
-        function clearSelectedPhoto() {
-            $scope.selectedPhoto.large_image_url = null;
-            $scope.selectedPhoto = null;
-            $scope.$apply();
-        }
-
 
         init();
     }

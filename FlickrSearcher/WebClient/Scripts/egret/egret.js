@@ -45,6 +45,24 @@ function removeMainScroll() {
 
 
 /* ----------------------------- 
+Animations
+----------------------------- */
+function fadeOutPhotoDetails() {
+
+    removeModalScroll();
+    $('photo-details').animate({ 'left': '-50%' }, { duration: 600, queue: false });// .delay(300).fadeOut(400);
+    $('photo-details').animate({ 'right': '50%' }, { duration: 600, queue: false });
+    $('photo-details').animate({}, {}).delay(150).fadeOut(450);
+    setTimeout(function () {
+        $('photo-details').attr('style', function (i, style) {
+            return style = "";
+        });
+    }, 1200);
+    $("html").getNiceScroll().locked = false;
+}
+
+
+/* ----------------------------- 
 Card Style Script
 ----------------------------- */
 $(document).ready(function () {
