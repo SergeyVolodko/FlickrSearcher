@@ -33,6 +33,15 @@ function removeModalScroll() {
         .removeClass('scroll-added');
 }
 
+function updateMainScroll() {
+    $("html")
+        .niceScroll(theNiceScroll);
+}
+
+function removeMainScroll() {
+    $("html").getNiceScroll().remove();
+}
+
 
 
 /* ----------------------------- 

@@ -35,13 +35,17 @@
         }
 
         $scope.openDetails = function(photoId, imageUrl) {
-            
+
+            $("html").getNiceScroll().locked = true;
             $scope.isLoading = true;
             $scope.detailsShown = true;
             $scope.selectedPhoto = {};
             $scope.selectedPhoto.large_image_url = imageUrl;
-
+            
+            $('photo-details').removeClass("invisible");
             updateModalScroll();
+            $("html").getNiceScroll().lock();
+            
 
             photoService
                 .loadDetails(photoId)
@@ -51,20 +55,27 @@
 
         $scope.closeDetails = function() {
             $scope.detailsShown = false;
-            //$('photo-details').addClass("unanchor-right");
             removeModalScroll();
-            //$('.photo-detail-background-blocker').addClass("invisible");
-            $('photo-details').animate({ 'left': '-105%' }, { duration: 400, queue: false }).delay(300).fadeOut(400);
-            ////$(this).parent().fadeOut(400);
+            
 
-            //$("photo-details").addClass("deactivated");
+            $('photo-details').animate({ 'left': '-105%' }, { duration: 400, queue: false }).delay(300).fadeOut(400);
+            $('photo-details').animate({ 'right': '105%' }, { duration: 400, queue: false });
+            
+
             setTimeout(function () {
                 $('photo-details').attr('style', function (i, style) {
-                    return style="";
+                    return style = "";
                 });
             }, 1000);
+            $("html").getNiceScroll().locked = false;
+
+            window.setTimeout(clearSelectedPhoto, 1000);
+        }
+
+        function clearSelectedPhoto() {
             $scope.selectedPhoto.large_image_url = null;
             $scope.selectedPhoto = null;
+            $scope.$apply();
         }
 
 

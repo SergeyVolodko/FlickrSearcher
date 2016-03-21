@@ -5,7 +5,7 @@
             <h4>{{selectedPhoto.details.title}}</h4>
         </div>
         <div class="col-md-10 project-photo">
-            <img ng-src="{{selectedPhoto.large_image_url}}" alt="">
+            <img src="{{selectedPhoto.large_image_url}}">
         </div>
         <div class="col-md-12 project-details">
             <h5>Photo details</h5>
@@ -23,7 +23,7 @@
             <h5>Owner</h5>
             <div class="details-list">
                 <img class="img-circle"
-                     ng-src="{{selectedPhoto.details.icon_url}}"></img>
+                     src="{{selectedPhoto.details.icon_url}}"></img>
                 {{selectedPhoto.details.owner_username}}
                 <div>
                     <i class="fa fa-user"></i> <strong class="strong">Real name: </strong>{{selectedPhoto.details.owner_realname}}
