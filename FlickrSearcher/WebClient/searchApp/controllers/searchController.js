@@ -14,9 +14,6 @@
         }
         var onDetailsLoaded = function (response) {
             $scope.selectedPhoto.details = response.data;
-            $scope.isLoading = false;
-
-            updateModalScroll();
         }
 
         var init = function() {
@@ -36,14 +33,13 @@
 
         $scope.openDetails = function(photoId, imageUrl) {
 
-            $("html").getNiceScroll().locked = true;
-            $scope.isLoading = true;
+            startFadeInPhotoDetails();
+            
             $scope.detailsShown = true;
+            updateModalScroll();
             $scope.selectedPhoto = {};
             $scope.selectedPhoto.large_image_url = imageUrl;
-            
-            $('photo-details').removeClass("invisible");
-            updateModalScroll();
+
             
 
             photoService
