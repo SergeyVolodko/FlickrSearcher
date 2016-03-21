@@ -21,15 +21,14 @@
 
 <body ng-app="searchApp">
     <div ng-controller="searchController"
-         style="background-color: #333; width: 100%; position: absolute; height: 100%;">
-
-        <!--<img src="https://s.yimg.com/uy/build/images/sohp/inspiration/dave3.jpg" class="vegas-background"></img>-->
+         class="app-container"
+         ng-class="{'scroll-removed': detailsShown}">
 
         <spinner ng-show="isLoading"></spinner>
 
         <search-bar></search-bar>
 
-        <found-photos></found-photos>
+        <found-photos on-finish-render></found-photos>
 
         <photo-details class="invisible"
                        ng-class="{'active': detailsShown, 'deactivated':!detailsShown}"></photo-details>
@@ -45,8 +44,9 @@
     <script src="Scripts/egret/jquery.easing.js"></script>
     <script src="Scripts/egret/jquery.appear.js"></script>
     <script src="Scripts/egret/jquery.nicescroll.js"></script>
-    <script src="Scripts/egret/egret.js"></script>
     <script src="Scripts/egret/jquery.baraja.js"></script>
+
+    <script src="scrolls.js"></script>
 
 
 

@@ -9,13 +9,22 @@
         var onError = function () { $scope.isLoading = false; }
 
         var onPhotosFound = function (response) {
-            $scope.photos = response.data;
+            if (response.data && response.data.length > 0) {
+                $scope.photos = response.data;
+            }
+            else {
+                alert('Sorry, no photos found for the request: ' + $scope.searchText);
+            }
+            
             $scope.isLoading = false;
         }
         var onDetailsLoaded = function (response) {
             $scope.selectedPhoto.details = response.data;
         }
 
+        //////
+        //  Init
+        //////
         var init = function() {
             var randomPage = Math.floor(Math.random() * (42 - 1)) + 1;
 
@@ -24,19 +33,28 @@
                 .then(onPhotosFound, onError);
         }
 
+        //////
+        //  makeSearch
+        //////
         $scope.makeSearch = function () {
+            if ($scope.searchText === "") {
+                return;
+            }
             $scope.isLoading = true;
             photoService
                 .searchPhotos($scope.searchText, 1)
                 .then(onPhotosFound, onError);
         }
 
+        //////
+        //  openDetails
+        //////
         $scope.openDetails = function(photoId, imageUrl) {
 
             startFadeInPhotoDetails();
             
             $scope.detailsShown = true;
-            updateModalScroll();
+            
             $scope.selectedPhoto = {};
             $scope.selectedPhoto.large_image_url = imageUrl;
 
@@ -45,7 +63,9 @@
                 .then(onDetailsLoaded, onError);
         }
 
-
+        //////
+        //  closeDetails
+        //////
         $scope.closeDetails = function() {
             $scope.detailsShown = false;
 

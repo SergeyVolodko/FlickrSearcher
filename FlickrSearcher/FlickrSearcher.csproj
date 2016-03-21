@@ -164,7 +164,7 @@
     <Content Include="WebClient\Scripts\angular.js" />
     <Content Include="WebClient\Scripts\angular.min.js" />
     <Content Include="WebClient\Scripts\angular.min.js.map" />
-    <Content Include="WebClient\Scripts\egret\egret.js" />
+    <Content Include="WebClient\scrolls.js" />
     <Content Include="WebClient\Scripts\egret\jquery-1.11.1min..js" />
     <Content Include="WebClient\Scripts\egret\jquery.appear.js" />
     <Content Include="WebClient\Scripts\egret\jquery.easing.js" />
@@ -202,6 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="WebClient\img\" />
+    <Folder Include="WebClient\Scripts\lib\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
