@@ -65,7 +65,7 @@ namespace FlickrSearcher.Search.Repoitories
             var ownerPhoto = new FlickerPhoto
             {
                 Id = (string)photo["owner"]["nsid"],
-                Server = (string)photo["owner"]["iconserver"],
+                Server = (int)photo["owner"]["iconserver"],
                 Farm = (int)photo["owner"]["iconfarm"],
             };
 

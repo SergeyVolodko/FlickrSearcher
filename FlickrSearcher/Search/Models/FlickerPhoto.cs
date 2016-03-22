@@ -12,7 +12,7 @@ namespace FlickrSearcher.Search.Models
         public string Secret { get; set; }
 
         [DataMember(Name = "server")]
-        public string Server { get; set; }
+        public int Server { get; set; }
 
         [DataMember(Name = "farm")]
         public int Farm { get; set; }

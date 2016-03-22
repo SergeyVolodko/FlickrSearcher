@@ -65,28 +65,6 @@ namespace FlickrSearcher.Tests.Data
             return data;
         }
 
-        public PhotoServiceSUTBuilder FindsPhotos(
-            List<FlickerPhoto> flickerPhotos)
-        {
-            flickerPhotos.ForEach(p=> p.Id = fixture.Create<long>().ToString());
-
-            data.PhotoRepository
-                .Find(data.InputText, data.InputPage)
-                .Returns(flickerPhotos);
-
-            return this;
-        }
-
-
-        public PhotoServiceSUTBuilder FindsSpecificPhotos(
-            List<FlickerPhoto> flickerPhotos)
-        {
-            data.PhotoRepository
-                .Find(data.InputText, data.InputPage)
-                .Returns(flickerPhotos);
-
-            return this;
-        }
 
         public PhotoServiceSUTBuilder WithInputPhotoId(
             long photoId)
@@ -95,6 +73,29 @@ namespace FlickrSearcher.Tests.Data
             return this;
         }
 
+        // Mocks for photo repository methods
+        public PhotoServiceSUTBuilder FindsPhotos(
+            List<FlickerPhoto> outputFlickerPhotos)
+        {
+            outputFlickerPhotos.ForEach(p => p.Id = fixture.Create<long>().ToString());
+
+            data.PhotoRepository
+                .Find(data.InputText, data.InputPage)
+                .Returns(outputFlickerPhotos);
+
+            return this;
+        }
+        
+        public PhotoServiceSUTBuilder FindsSpecificPhotos(
+            List<FlickerPhoto> outputFlickerPhotos)
+        {
+            data.PhotoRepository
+                .Find(data.InputText, data.InputPage)
+                .Returns(outputFlickerPhotos);
+
+            return this;
+        }
+        
         public PhotoServiceSUTBuilder LoadsPhotoDetails(
             long inputPhotoId, 
             FlickerPhotoDetails outputFlickerDetails)
@@ -105,25 +106,44 @@ namespace FlickrSearcher.Tests.Data
 
             return this;
         }
+        
+        public PhotoServiceSUTBuilder LoadsPhotoDetails(
+            FlickerPhotoDetails outputFlickerDetails)
+        {
+            LoadsPhotoDetails(
+                data.InputPhotoId,
+                outputFlickerDetails);
 
+            return this;
+        }
+
+        public PhotoServiceSUTBuilder LoadsSomePhotoDetails()
+        {
+            LoadsPhotoDetails(fixture.Create<FlickerPhotoDetails>());
+
+            return this;
+        }
+
+
+        // Mocks for image url factory methods
         public PhotoServiceSUTBuilder CreatesSmallImageUrl(
-            FlickerPhoto flickerPhoto, 
-            string imageUrl)
+            FlickerPhoto inputFlickerPhoto, 
+            string outputImageUrl)
         {
             data.ImageUrlFactory
-                .CreateImageUrl(flickerPhoto, ImageSize.Small)
-                .Returns(imageUrl);
+                .CreateImageUrl(inputFlickerPhoto, ImageSize.Small)
+                .Returns(outputImageUrl);
 
             return this;
         }
 
         public PhotoServiceSUTBuilder CreatesLargeImageUrl(
-            FlickerPhoto flickerPhoto, 
-            string imageUrl)
+            FlickerPhoto inputFlickerPhoto, 
+            string outputImageUrl)
         {
             data.ImageUrlFactory
-                .CreateImageUrl(flickerPhoto, ImageSize.Large)
-                .Returns(imageUrl);
+                .CreateImageUrl(inputFlickerPhoto, ImageSize.Large)
+                .Returns(outputImageUrl);
 
             return this;
         }
@@ -138,24 +158,5 @@ namespace FlickrSearcher.Tests.Data
 
             return this;
         }
-
-        public PhotoServiceSUTBuilder LoadsPhotoDetails(
-            FlickerPhotoDetails details)
-        {
-            LoadsPhotoDetails(
-                data.InputPhotoId,
-                details);
-
-            return this;
-        }
-
-
-        public PhotoServiceSUTBuilder LoadsSomePhotoDetails()
-        {
-            LoadsPhotoDetails(fixture.Create<FlickerPhotoDetails>());
-
-            return this;
-        }
-
     }
 }

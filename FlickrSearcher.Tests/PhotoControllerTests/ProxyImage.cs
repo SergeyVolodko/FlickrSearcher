@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using FlickrSearcher.Search;
@@ -53,29 +49,29 @@ namespace FlickrSearcher.Tests.PhotoControllerTests
         }
 
 
-        //[Theory]
-        //[ControllerAutoData]
-        //public async Task returns_proxy_redirect_response(
-        //    [Frozen]IImageProxy proxy,
-        //    PhotoController sut,
-        //    int farm,
-        //    int server,
-        //    string id_secret,
-        //    string size,
-        //    Task<HttpResponseMessage> response)
-        //{
-        //    // arrange
-        //    proxy.Redirect(farm, server, id_secret, size)
-        //        .Returns(response);
-        //    var expected = await response;
+        [Theory]
+        [ControllerAutoData]
+        public async Task returns_proxy_redirect_response(
+            [Frozen]IImageProxy proxy,
+            PhotoController sut,
+            int farm,
+            int server,
+            string id_secret,
+            string size,
+            HttpResponseMessage response)
+        {
+            // arrange
+            var task = Task.FromResult(response);
 
-        //    // act
-        //    var actual = sut.ProxyImage(farm, server, id_secret, size);
+            proxy.Redirect(farm, server, id_secret, size)
+                .Returns(task);
 
-        //    // assert
-        //    actual.Should().Be(expected);
-        //}
+            // act
+            var actual = sut.ProxyImage(farm, server, id_secret, size);
 
-
+            // assert
+            actual.Result
+                .ShouldBeEquivalentTo(response);
+        }
     }
 }

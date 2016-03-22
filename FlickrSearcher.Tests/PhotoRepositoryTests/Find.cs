@@ -1,33 +1,57 @@
-﻿using ApprovalTests;
-using ApprovalTests.Reporters;
-using ApprovalTests.Writers;
+﻿using System.Linq;
 using FlickrSearcher.Search.Repoitories;
-using FlickrSearcher.Tests.Data;
-using Newtonsoft.Json;
+using FluentAssertions;
 using Xunit;
 
 namespace FlickrSearcher.Tests.PhotoRepositoryTests
 {
-    [UseReporter(typeof(DiffReporter))]
     public class Find
     {
-        //[Fact]
-        public void approval()
+        [Fact]
+        public void returns_10_items()
         {
             // arrange
             var sut = new PhotoRepository();
 
             // act
-            var actual = sut.Find("Millenium", 42);
+            var actual = sut.Find("Igor Nikolaev", 1);
 
             // assert
-            var json = JsonConvert.SerializeObject(actual, Formatting.Indented);
+            actual
+                .Count
+                .Should().Be(10);
+        }
 
-            var writer = new ConfigurableTempTextFileWriter(
-                Consts.ApprovalsFolder + @"\photo_repo_find_result_approved.json", 
-                json);
+        [Fact]
+        public void item_manual_approval()
+        {
+            // arrange
+            var sut = new PhotoRepository();
 
-            Approvals.Verify(writer);
+            // act
+            var actual = sut.Find("Photo", 1).First();
+
+            // assert
+            var id = long.Parse(actual.Id);
+            id.Should()
+                .BeGreaterThan(0);
+
+            actual.Secret
+                .Should()
+                .NotBeNullOrEmpty();
+
+            actual.Farm
+                .Should()
+                .BeGreaterThan(0);
+
+            actual.Server
+                .Should()
+                .BeGreaterThan(0);
+
+            actual.Title
+                .Should()
+                .BeOfType<string>();
+                
         }
     }
 }

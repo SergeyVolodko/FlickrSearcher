@@ -7,7 +7,7 @@ namespace FlickrSearcher.Tests
 {
     public class AdHocTests
     {
-        [Fact]
+        //[Fact]
         public async Task check_flckr()
         {
             var client = new HttpClient();
@@ -31,7 +31,7 @@ namespace FlickrSearcher.Tests
                 .BeTrue();
         }
 
-        [Fact]
+        //[Fact]
         public async Task request_photo()
         {
             //{"id":"25750968675","owner":"125349441@N03","secret":"5c4b5e441a","server":"1460","farm":2,"title":"Red Tail","ispublic":1,"isfriend":0,"isfamily":0}
@@ -56,28 +56,8 @@ namespace FlickrSearcher.Tests
                 .Should()
                 .Be(25254);
         }
-        [Fact]
-        public async Task request_photo_short()
-        {
-            //{"id":"25750968675","owner":"125349441@N03","secret":"5c4b5e441a","server":"1460","farm":2,"title":"Red Tail","ispublic":1,"isfriend":0,"isfamily":0}
-            
-            var client = new HttpClient();
 
-
-            var id = FlickrBaseEncoder.Encode(25750968675);
-
-            var url = "https://flic.kr/p/" + id;
-            
-            var response = await client.GetAsync(url);
-
-            var content = await response.Content.ReadAsByteArrayAsync();
-
-            content.Length
-                .Should()
-                .BeGreaterThan(25254);
-        }
-
-        [Fact]
+        //[Fact]
         public async Task get_image_details()
         {
             var client = new HttpClient();
@@ -100,45 +80,5 @@ namespace FlickrSearcher.Tests
                 .BeTrue();
         }
     }
-
-    public class FlickrBaseEncoder
-    {
-        protected static string alphabetString = "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";
-        protected static char[] alphabet = alphabetString.ToCharArray();
-        protected static int base_count = alphabet.Length;
-
-        public static string Encode(long num)
-        {
-            string result = "";
-            long div;
-            int mod = 0;
-
-            while (num >= base_count)
-            {
-                div = num / base_count;
-                mod = (int)(num - (base_count * (long)div));
-                result = alphabet[mod] + result;
-                num = (long)div;
-            }
-            if (num > 0)
-            {
-                result = alphabet[(int)num] + result;
-            }
-            return result;
-        }
-
-        //public static long decode(String link)
-        //{
-        //    long result = 0;
-        //    long multi = 1;
-        //    while (link.Length > 0)
-        //    {
-        //        String digit = link.Substring(link.Length - 1);
-        //        result = result + multi * alphabetString.LastIndexOf(digit);
-        //        multi = multi * base_count;
-        //        link = link.Substring(0, link.Length - 1);
-        //    }
-        //    return result;
-        //}
-    }
+    
 }

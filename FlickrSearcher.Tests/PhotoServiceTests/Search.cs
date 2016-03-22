@@ -12,7 +12,7 @@ namespace FlickrSearcher.Tests.PhotoServiceTests
     public class Search
     {
         [Fact]
-        public void calls_photo_info_repository_find()
+        public void calls_photo_repository_find()
         {
             // arrange
             var sutData = new PhotoServiceSUTBuilder().Build();

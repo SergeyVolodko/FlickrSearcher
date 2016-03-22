@@ -1,8 +1,9 @@
-﻿using System.Net.Http;
+﻿using System.IO;
+using System.Net.Http;
 using System.Threading.Tasks;
-using FlickrSearcher.Search;
 using FlickrSearcher.Search.Factories;
 using FlickrSearcher.Search.Services;
+using FlickrSearcher.Tests.Data;
 using FlickrSearcher.Tests.Infrastructure;
 using FluentAssertions;
 using NSubstitute;
@@ -47,14 +48,13 @@ namespace FlickrSearcher.Tests.ImageProxyTests
             // setup
             var url = "https://farm2.staticflickr.com" +
                 "/1460" +
-                "/25750968675_5c4b5e441a_m.jpg";
-
+                "/25750968675_5c4b5e441a_s.jpg";
             factory
                 .CreateRealImageUrl(0, 0, null, null)
                 .ReturnsForAnyArgs(url);
-            var client = new HttpClient();
-            var expected = await client.GetAsync(url);
-            var expectedImage = await expected.Content.ReadAsByteArrayAsync();
+
+            var filePath = Consts.TestFilesFolder + @"\expected_image.jpg";
+            var expectedImage = File.ReadAllBytes(filePath);
 
             // act
             var actual = await sut.Redirect(0, 0, null, null);
