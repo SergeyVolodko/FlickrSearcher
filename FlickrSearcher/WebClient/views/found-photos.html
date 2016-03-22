@@ -2,7 +2,7 @@
     <div class="container screenshots">
         <div class="row porfolio-container" >
 
-            <div class="found-photo col-md-4 col-sm-4 col-xs-6"
+            <div class="col-md-4 col-sm-4 col-xs-6"
                  ng-repeat="photo in photos">
                 <div class="screenshot">
                     <div class="photo-box">
@@ -15,6 +15,16 @@
                             <a><i class="fa fa-search-plus fa-2x"></i></a>
                         </span>
                     </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4 col-xs-6"
+                 ng-click="loadNextPage()">
+                <div class="zoom fancy-button orange-border">
+                    <span class="icon">
+                        <i class="fa fa-arrow-down"></i>
+                    </span>
+                    <a>Load more...</a>
                 </div>
             </div>
 

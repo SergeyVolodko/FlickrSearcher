@@ -1,4 +1,6 @@
-﻿
+﻿.orange-border {
+    border-color: orange;
+}
 .app-container {
     background-color: #333; 
     width: 100%; 

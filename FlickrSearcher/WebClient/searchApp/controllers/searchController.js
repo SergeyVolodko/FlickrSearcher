@@ -2,15 +2,19 @@
 
     var searchController = function ($scope, photoService) {
         $scope.searchText = "";
+        $scope.currentPage = 1;
         $scope.isLoading = true;
         $scope.detailsShown = false;
         $scope.selectedPhoto = null;
+        $scope.photos = [];
 
         var onError = function () { $scope.isLoading = false; }
 
         var onPhotosFound = function (response) {
             if (response.data && response.data.length > 0) {
-                $scope.photos = response.data;
+                for (var i = 0; i < response.data.length; i++) {
+                    $scope.photos.push(response.data[i]);
+                }
             }
             else {
                 alert('Sorry, no photos found for the request: ' + $scope.searchText);
@@ -41,9 +45,26 @@
             if ($scope.searchText === "") {
                 return;
             }
+            $scope.photos = [];
+            $scope.currentPage = 1;
             $scope.isLoading = true;
             photoService
                 .searchPhotos($scope.searchText, 1)
+                .then(onPhotosFound, onError);
+        }
+
+        //////
+        //  loadNextPage
+        //////
+        $scope.loadNextPage = function () {
+            if ($scope.searchText === ""
+                && $scope.currentPage === 1) {
+                $scope.searchText = "London";
+            }
+            $scope.isLoading = true;
+            $scope.currentPage += 1;
+            photoService
+                .searchPhotos($scope.searchText, $scope.currentPage)
                 .then(onPhotosFound, onError);
         }
 
