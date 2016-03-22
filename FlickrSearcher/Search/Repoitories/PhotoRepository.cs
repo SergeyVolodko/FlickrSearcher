@@ -35,7 +35,8 @@ namespace FlickrSearcher.Search.Repoitories
 
             var photos = (JObject.Parse(json)["photos"]["photo"] as JArray);
             
-            return JsonConvert.DeserializeObject<List<FlickerPhoto>>(photos.ToString());
+            return JsonConvert
+                .DeserializeObject<List<FlickerPhoto>>(photos.ToString());
         }
 
         public FlickerPhotoDetails LoadPhotoDetails(
@@ -53,35 +54,7 @@ namespace FlickrSearcher.Search.Repoitories
 
             return DeserializePhotoDetails(json);
         }
-
-        private FlickerPhotoDetails DeserializePhotoDetails(string json)
-        {
-            var photo = JObject.Parse(json)["photo"];
-
-            var tags = photo["tags"]["tag"]
-                .Select(t=>t["_content"].ToString())
-                .ToList();
-
-            var ownerPhoto = new FlickerPhoto
-            {
-                Id = (string)photo["owner"]["nsid"],
-                Server = (int)photo["owner"]["iconserver"],
-                Farm = (int)photo["owner"]["iconfarm"],
-            };
-
-            return new FlickerPhotoDetails
-            {
-                PhotoId = (long) photo["id"],
-                OwnerUserName = (string) photo["owner"]["username"],
-                OwnerRealName = (string) photo["owner"]["realname"],
-                OwnerLocation = (string) photo["owner"]["location"],
-                Title = (string) photo["title"]["_content"],
-                TakenDate = (DateTime?) photo["dates"]["taken"],
-                OwnerPhoto = ownerPhoto,
-                Tags = tags
-            };
-        }
-
+        
         private string MakeGetRequest(string url)
         {
             var httpClient = new HttpClient();
@@ -101,6 +74,34 @@ namespace FlickrSearcher.Search.Repoitories
             makeRequest.Wait();
 
             return responseJson;
+        }
+
+        private FlickerPhotoDetails DeserializePhotoDetails(string json)
+        {
+            var photo = JObject.Parse(json)["photo"];
+
+            var tags = photo["tags"]["tag"]
+                .Select(t => t["_content"].ToString())
+                .ToList();
+
+            var ownerPhoto = new FlickerPhoto
+            {
+                Id = (string)photo["owner"]["nsid"],
+                Server = (int)photo["owner"]["iconserver"],
+                Farm = (int)photo["owner"]["iconfarm"],
+            };
+
+            return new FlickerPhotoDetails
+            {
+                PhotoId = (long)photo["id"],
+                OwnerUserName = (string)photo["owner"]["username"],
+                OwnerRealName = (string)photo["owner"]["realname"],
+                OwnerLocation = (string)photo["owner"]["location"],
+                Title = (string)photo["title"]["_content"],
+                TakenDate = (DateTime?)photo["dates"]["taken"],
+                OwnerPhoto = ownerPhoto,
+                Tags = tags
+            };
         }
     }
 }

@@ -53,6 +53,7 @@ namespace FlickrSearcher.Search.Services
         {
             var details = photoRepository
                 .LoadPhotoDetails(photoId);
+
             var iconUrl = urlFactory
                 .CreateImageUrl(
                     details.OwnerPhoto, ImageSize.Icon);
@@ -69,5 +70,6 @@ namespace FlickrSearcher.Search.Services
                 Tags = details?.Tags
             };
         }
+
     }
 }

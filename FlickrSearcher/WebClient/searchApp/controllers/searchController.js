@@ -20,6 +20,7 @@
         }
         var onDetailsLoaded = function (response) {
             $scope.selectedPhoto.details = response.data;
+            $scope.isLoading = false;
         }
 
         //////
@@ -50,7 +51,7 @@
         //  openDetails
         //////
         $scope.openDetails = function(photoId, imageUrl) {
-
+            $scope.isLoading = true;
             startFadeInPhotoDetails();
             
             $scope.detailsShown = true;
