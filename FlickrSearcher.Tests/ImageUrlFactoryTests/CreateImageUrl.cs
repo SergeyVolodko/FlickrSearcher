@@ -1,5 +1,4 @@
-﻿using System;
-using FlickrSearcher.Search.Factories;
+﻿using FlickrSearcher.Search.Factories;
 using FlickrSearcher.Search.Models;
 using FluentAssertions;
 using Ploeh.AutoFixture;
