@@ -153,16 +153,16 @@
     <Content Include="WebClient\scripts\lib\modernizr.js" />
     <Content Include="WebClient\scripts\scrolls.js" />
     <Content Include="WebClient\searchApp\services\photoService.js" />
+    <Content Include="WebClient\views\directives\footerDirective.js" />
+    <Content Include="WebClient\views\directives\foundPhotosDirective.js" />
+    <Content Include="WebClient\views\directives\photoDetailsDirective.js" />
+    <Content Include="WebClient\views\directives\searchBarDirective.js" />
+    <Content Include="WebClient\views\directives\spinnerDirective.js" />
     <Content Include="WebClient\views\footer.html" />
     <Content Include="WebClient\views\found-photos.html" />
-    <Content Include="WebClient\views\foundPhotosDirective.js" />
-    <Content Include="WebClient\views\photoDetailsDirective.js" />
     <Content Include="WebClient\views\photo-details.html" />
     <Content Include="WebClient\views\search-bar.html" />
     <Content Include="WebClient\views\spinner.html" />
-    <Content Include="WebClient\views\footerDirective.js" />
-    <Content Include="WebClient\views\spinnerDirective.js" />
-    <Content Include="WebClient\views\searchBarDirective.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
