@@ -27,6 +27,13 @@
     cursor: pointer;
 }
 
+.load-more-btn {
+    cursor: pointer;
+}
+.back-arrow {
+    color: rgb(216, 128, 15);
+}
+
 .search-btn {
     background-color: rgba(255, 178, 87, 0.82);
     color: white;
