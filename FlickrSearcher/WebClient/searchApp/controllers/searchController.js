@@ -34,7 +34,7 @@
             var randomPage = Math.floor(Math.random() * (42 - 1)) + 1;
 
             photoService
-                .searchPhotos("London", randomPage)
+                .searchPhotos("Netherlands", randomPage)
                 .then(onPhotosFound, onError);
         }
 
@@ -59,7 +59,7 @@
         $scope.loadNextPage = function () {
             if ($scope.searchText === ""
                 && $scope.currentPage === 1) {
-                $scope.searchText = "London";
+                $scope.searchText = "Netherlands";
             }
             $scope.isLoading = true;
             $scope.currentPage += 1;
