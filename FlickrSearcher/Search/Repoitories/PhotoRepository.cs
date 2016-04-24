@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 using FlickrSearcher.Search.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -59,19 +58,12 @@ namespace FlickrSearcher.Search.Repoitories
         {
             var httpClient = new HttpClient();
 
-            var responseJson = "";
+            var response = httpClient.GetAsync(url)
+                .GetAwaiter().GetResult();
 
-            Task makeRequest = httpClient.GetAsync(url)
-                .ContinueWith(task =>
-                {
-                    if (task.Result.IsSuccessStatusCode)
-                    {
-                        task.Result.Content.ReadAsStringAsync()
-                            .ContinueWith(t => { responseJson = t.Result; })
-                            .Wait();
-                    }
-                });
-            makeRequest.Wait();
+            var responseJson = response.Content
+                .ReadAsStringAsync()
+                .GetAwaiter().GetResult();
 
             return responseJson;
         }
